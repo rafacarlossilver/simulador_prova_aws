@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador AWS Cloud Practitioner CLF-C02</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              aws: {
+                slate: '#0f172a',
+                orange: '#f97316',
+                gold: '#f59e0b',
+                cloud: '#e2e8f0',
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide-react@0.431.0/dist/umd/lucide-react.production.min.js"></script>
+    <style>
+      body {
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      }
+      .touch-target {
+        min-height: 44px;
+      }
+      .scroll-smooth {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen text-slate-100 scroll-smooth">
+    <div id="root" class="mx-auto max-w-5xl px-4 py-6"></div>
+
+    <script type="text/babel">
+      const { useEffect, useMemo, useRef, useState } = React;
+      const { createRoot } = ReactDOM;
+      const {
+        CheckCircle,
+        XCircle,
+        Clock3,
+        Download,
+        ArrowRight,
+        ArrowLeft,
+        RefreshCcw,
+      } = LucideReact;
+
+      const STORAGE_KEY = 'aws-clf-clf-c02-web-state';
+      const MANIFEST_URL = 'manifest.json';
+      const TOTAL_SECONDS = 90 * 60;
+
+      const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      };
+
+      const safeCsv = (value) => {
+        const text = String(value || '');
+        const escaped = text.replace(/"/g, '""');
+        return `"${escaped}"`;
+      };
+
+      const getStoredState = () => {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return null;
+          const parsed = JSON.parse(raw);
+          if (!parsed || typeof parsed !== 'object') return null;
+          return parsed;
+        } catch (error) {
+          return null;
+        }
+      };
+
+      const saveStoredState = (value) => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+      };
+
+      const parseQuestionData = (rawQuestions) => {
+        return rawQuestions.map((item) => ({
+          id: item.id,
+          pergunta: item.pergunta,
+          opcoes: item.opcoes,
+          resposta_correta: Array.isArray(item.resposta_correta)
+            ? item.resposta_correta.map(String).map((choice) => choice.trim().toLowerCase())
+            : [String(item.resposta_correta).trim().toLowerCase()],
+          explicacao: item.explicacao,
+        }));
+      };
+
+      const scoreValue = (correct, total) => {
+        if (total === 0) return 100;
+        return Math.round(100 + (correct / total) * 900);
+      };
+
+      const buildCsv = (state) => {
+        const score = state.score || 0;
+        const lines = [];
+        lines.push(`Score;${score}`);
+        lines.push('');
+        lines.push('ID;Pergunta;Status;Sua_Resposta;Resposta_Correta');
+        state.questions.forEach((question) => {
+          const response = state.responses[question.id] || [];
+          const correct = question.resposta_correta || [];
+          const status = response.length && response.length === correct.length && response.every((choice) => correct.includes(choice))
+            ? 'Acerto'
+            : 'Erro';
+          lines.push([
+            question.id,
+            question.pergunta,
+            status,
+            response.map((item) => item.toUpperCase()).join(', '),
+            correct.map((item) => item.toUpperCase()).join(', '),
+          ].map(safeCsv).join(';'));
+        });
+        return lines.join('\n');
+      };
+
+      const downloadCsv = (state) => {
+        const csvContent = buildCsv(state);
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        const filename = `resultado_${state.title.replace(/\s+/g, '_')}_${new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-')}_score${state.score}.csv`;
+        link.href = url;
+        link.setAttribute('download', filename);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      };
+
+      const isCorrectAnswer = (question, response) => {
+        if (!response || !response.length) return false;
+        const expected = question.resposta_correta || [];
+        return response.length === expected.length && response.every((choice) => expected.includes(choice));
+      };
+
+      const App = () => {
+        const [manifest, setManifest] = useState([]);
+        const [loading, setLoading] = useState(true);
+        const [error, setError] = useState(null);
+        const [state, setState] = useState(null);
+        const [currentSelection, setCurrentSelection] = useState([]);
+        const [validationMessage, setValidationMessage] = useState('');
+        const [reviewIndex, setReviewIndex] = useState(0);
+        const timerRef = useRef(null);
+
+        useEffect(() => {
+          fetch(MANIFEST_URL)
+            .then((response) => {
+              if (!response.ok) throw new Error('Não foi possível recuperar a lista de simulados.');
+              return response.json();
+            })
+            .then((json) => {
+              if (!json.simulados || !Array.isArray(json.simulados)) {
+                throw new Error('Manifesto inválido.');
+              }
+              setManifest(json.simulados);
+            })
+            .catch((err) => setError(err.message))
+            .finally(() => setLoading(false));
+        }, []);
+
+        useEffect(() => {
+          const stored = getStoredState();
+          if (!stored) return;
+          if (stored.stage === 'quiz' && stored.endsAt) {
+            const remaining = Math.max(0, Math.round((stored.endsAt - Date.now()) / 1000));
+            if (remaining <= 0) {
+              setState({ ...stored, stage: 'finished', remainingSeconds: 0 });
+              return;
+            }
+            setState({ ...stored, remainingSeconds: remaining });
+            return;
+          }
+          setState(stored);
+        }, []);
+
+        useEffect(() => {
+          if (!state || state.stage !== 'quiz') return;
+          if (timerRef.current) clearInterval(timerRef.current);
+          timerRef.current = setInterval(() => {
+            setState((current) => {
+              if (!current || current.stage !== 'quiz') return current;
+              const remaining = Math.max(0, Math.round((current.endsAt - Date.now()) / 1000));
+              if (remaining <= 0) {
+                clearInterval(timerRef.current);
+                return { ...current, remainingSeconds: 0, stage: 'finished' };
+              }
+              return { ...current, remainingSeconds: remaining };
+            });
+          }, 1000);
+          return () => clearInterval(timerRef.current);
+        }, [state && state.stage]);
+
+        useEffect(() => {
+          if (!state) return;
+          saveStoredState({ ...state });
+        }, [state]);
+
+        useEffect(() => {
+          if (!state || state.stage !== 'finished' || typeof state.score === 'number') return;
+          const correct = state.questions.filter((question) =>
+            isCorrectAnswer(question, state.responses[question.id])
+          ).length;
+          const score = scoreValue(correct, state.questions.length);
+          setState({
+            ...state,
+            score,
+            correctCount: correct,
+          });
+        }, [state && state.stage]);
+
+        useEffect(() => {
+          if (!state || state.stage !== 'quiz') return;
+          const question = state.questions[state.currentIndex];
+          const saved = state.responses[question.id] || [];
+          setCurrentSelection(saved);
+          setValidationMessage('');
+        }, [state && state.currentIndex]);
+
+        const startSimulado = (item) => {
+          setLoading(true);
+          fetch(`../simulados/${item.file}`)
+            .then((response) => {
+              if (!response.ok) throw new Error('Falha ao carregar o simulado.');
+              return response.json();
+            })
+            .then((json) => {
+              const questions = parseQuestionData(json.questoes || []);
+              setState({
+                stage: 'quiz',
+                title: json.titulo || item.title,
+                file: item.file,
+                questions,
+                currentIndex: 0,
+                responses: {},
+                remainingSeconds: TOTAL_SECONDS,
+                endsAt: Date.now() + TOTAL_SECONDS * 1000,
+              });
+              setValidationMessage('');
+            })
+            .catch((err) => setError(err.message))
+            .finally(() => setLoading(false));
+        };
+
+        const commitAnswer = () => {
+          if (!state) return;
+          const question = state.questions[state.currentIndex];
+          const requiredCount = Math.max(1, question.resposta_correta.length);
+          if (currentSelection.length !== requiredCount) {
+            setValidationMessage(`Esta questão exige ${requiredCount} alternativa(s).`);
+            return;
+          }
+          const updatedResponses = { ...state.responses, [question.id]: currentSelection };
+          const nextIndex = state.currentIndex + 1;
+          const nextState = {
+            ...state,
+            responses: updatedResponses,
+            currentIndex: nextIndex,
+          };
+          if (nextIndex >= state.questions.length) {
+            return finishExam({ ...nextState });
+          }
+          setState(nextState);
+          setValidationMessage('');
+        };
+
+        const finishExam = (currentState) => {
+          const correct = currentState.questions.filter((question) =>
+            isCorrectAnswer(question, currentState.responses[question.id])
+          ).length;
+          const score = scoreValue(correct, currentState.questions.length);
+          setState({
+            ...currentState,
+            currentIndex: currentState.questions.length,
+            stage: 'finished',
+            score,
+            correctCount: correct,
+          });
+          if (timerRef.current) clearInterval(timerRef.current);
+        };
+
+        const resetSession = () => {
+          localStorage.removeItem(STORAGE_KEY);
+          window.location.reload();
+        };
+
+        const currentQuestion = useMemo(() => {
+          if (!state || state.stage !== 'quiz') return null;
+          return state.questions[state.currentIndex];
+        }, [state]);
+
+        const reviewQuestion = useMemo(() => {
+          if (!state || !state.questions.length) return null;
+          return state.questions[reviewIndex];
+        }, [state, reviewIndex]);
+
+        const renderSimuladoList = () => (
+          <div className="space-y-4">
+            <div className="rounded-3xl border border-aws-slate/40 bg-aws-slate/80 p-5 shadow-xl shadow-black/20">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-aws-orange text-2xl text-white">
+                  <ClipboardList />
+                </span>
+                <div>
+                  <h1 className="text-2xl font-semibold text-white">Simulador AWS CLF-C02</h1>
+                  <p className="mt-2 text-sm text-slate-300">
+                    Selecione um simulado para começar. Seu progresso será salvo automaticamente no navegador.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {manifest.map((item) => (
+                <button
+                  key={item.file}
+                  onClick={() => startSimulado(item)}
+                  className="touch-target rounded-3xl border border-aws-cloud/30 bg-white/5 px-4 py-5 text-left text-white transition hover:border-aws-orange hover:bg-aws-orange/10"
+                >
+                  <span className="text-lg font-semibold">{item.title}</span>
+                  <p className="mt-2 text-sm text-slate-300">{item.file}</p>
+                </button>
+              ))}
+            </div>
+
+            <div className="rounded-3xl border border-aws-cloud/30 bg-white/5 p-4 text-sm text-slate-300">
+              <p className="font-medium text-aws-gold">Importante:</p>
+              <p>O arquivo <span className="font-semibold">simulados/manifest.json</span> define os simulados disponíveis ao app Web.</p>
+            </div>
+          </div>
+        );
+
+        const renderQuiz = () => {
+          if (!currentQuestion || !state) return null;
+          const requiredCount = Math.max(1, currentQuestion.resposta_correta.length);
+          const selected = new Set(currentSelection);
+          return (
+            <div className="space-y-6">
+              <div className="rounded-3xl border border-aws-slate/40 bg-white/5 p-5 shadow-xl shadow-black/15">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-aws-gold">{state.title}</p>
+                    <h2 className="mt-2 text-3xl font-semibold text-white">Questão {state.currentIndex + 1} de {state.questions.length}</h2>
+                  </div>
+                  <div className="inline-flex items-center gap-2 rounded-3xl bg-aws-slate/80 px-4 py-3 text-sm text-white shadow-inner shadow-black/20">
+                    <Clock3 className="h-5 w-5 text-aws-orange" />
+                    <span className="font-semibold">{formatTime(state.remainingSeconds)}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-aws-cloud/30 bg-white/5 p-6 shadow-lg shadow-black/10">
+                <p className="text-lg font-semibold text-white">{currentQuestion.pergunta}</p>
+                <div className="mt-5 grid gap-3">
+                  {Object.entries(currentQuestion.opcoes).map(([key, text]) => {
+                    const value = key.trim().toLowerCase();
+                    const checked = selected.has(value);
+                    return (
+                      <button
+                        key={value}
+                        type="button"
+                        onClick={() => {
+                          const next = new Set(selected);
+                          if (requiredCount === 1) {
+                            next.clear();
+                            next.add(value);
+                          } else {
+                            if (next.has(value)) next.delete(value);
+                            else next.add(value);
+                          }
+                          setCurrentSelection(Array.from(next));
+                          setValidationMessage('');
+                        }}
+                        className={`touch-target w-full rounded-3xl border px-4 py-4 text-left transition ${checked ? 'border-aws-orange bg-aws-orange/15 text-white' : 'border-aws-cloud/40 bg-white/5 text-slate-200 hover:border-aws-orange hover:bg-aws-orange/10'}`}
+                      >
+                        <div className="flex items-center justify-between gap-4">
+                          <span className="text-base font-semibold uppercase text-aws-gold">{value.toUpperCase()}</span>
+                          <span className="text-sm text-slate-300">{text}</span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+                <div className="mt-4 rounded-3xl bg-aws-slate/80 px-4 py-3 text-sm text-slate-200">
+                  {requiredCount > 1
+                    ? `Escolha exatamente ${requiredCount} alternativas.`
+                    : 'Escolha apenas uma alternativa.'}
+                </div>
+                {validationMessage && (
+                  <div className="rounded-3xl bg-red-500/15 px-4 py-3 text-sm text-red-200">{validationMessage}</div>
+                )}
+                <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <button
+                    type="button"
+                    onClick={commitAnswer}
+                    className="touch-target inline-flex items-center justify-center gap-2 rounded-3xl bg-aws-orange px-5 py-4 text-base font-semibold text-white transition hover:bg-orange-600"
+                  >
+                    Avançar <ArrowRight className="h-5 w-5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const updatedState = { ...state, responses: { ...state.responses, [currentQuestion.id]: currentSelection } };
+                      setState(updatedState);
+                      saveStoredState(updatedState);
+                    }}
+                    className="touch-target inline-flex items-center justify-center gap-2 rounded-3xl border border-aws-cloud/40 bg-white/5 px-5 py-4 text-sm text-slate-100 transition hover:border-aws-orange hover:bg-aws-orange/10"
+                  >
+                    Salvar resposta <RefreshCcw className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        };
+
+        const renderFinish = () => {
+          if (!state) return null;
+          return (
+            <div className="space-y-6">
+              <div className="rounded-3xl border border-aws-slate/40 bg-white/5 p-6 shadow-xl shadow-black/20">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.2em] text-aws-gold">Resultado final</p>
+                    <h2 className="mt-2 text-4xl font-semibold text-white">Score {state.score}</h2>
+                    <p className="mt-2 text-slate-300">{state.correctCount} de {state.questions.length} acertos</p>
+                  </div>
+                  <div className="rounded-3xl bg-aws-orange px-5 py-4 text-2xl font-semibold text-white shadow-lg shadow-aws-orange/20">
+                    {state.score >= 700 ? 'APROVADO' : 'NÃO APROVADO'}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <button
+                  type="button"
+                  onClick={() => downloadCsv(state)}
+                  className="touch-target inline-flex items-center justify-center gap-2 rounded-3xl bg-aws-orange px-5 py-4 text-base font-semibold text-white transition hover:bg-orange-600"
+                >
+                  Gerar CSV <Download className="h-5 w-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setState({ ...state, stage: 'review' })}
+                  className="touch-target inline-flex items-center justify-center gap-2 rounded-3xl border border-aws-cloud/40 bg-white/5 px-5 py-4 text-base font-semibold text-slate-100 transition hover:border-aws-orange hover:bg-aws-orange/10"
+                >
+                  Revisar Questões <ArrowRight className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="rounded-3xl border border-aws-cloud/30 bg-white/5 p-5 text-slate-200">
+                <p className="text-sm">O arquivo CSV inclui o score final no topo e o histórico completo das respostas.</p>
+              </div>
+
+              <div className="rounded-3xl border border-aws-cloud/30 bg-white/5 p-5 text-sm text-slate-300">
+                <p>Pressione o botão abaixo para iniciar um novo simulado a partir do zero.</p>
+                <button
+                  type="button"
+                  onClick={resetSession}
+                  className="mt-3 touch-target rounded-3xl bg-slate-800 px-5 py-4 font-semibold text-white transition hover:bg-slate-700"
+                >
+                  Reiniciar Simulador
+                </button>
+              </div>
+            </div>
+          );
+        };
+
+        const renderReview = () => {
+          if (!state || !reviewQuestion) return null;
+          const response = state.responses[reviewQuestion.id] || [];
+          const correct = reviewQuestion.resposta_correta || [];
+          const status = isCorrectAnswer(reviewQuestion, response) ? 'Acerto' : 'Erro';
+          return (
+            <div className="space-y-6">
+              <div className="rounded-3xl border border-aws-slate/40 bg-white/5 p-6 shadow-xl shadow-black/20">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.2em] text-aws-gold">Revisão da questão</p>
+                    <h2 className="mt-2 text-3xl font-semibold text-white">Questão {reviewIndex + 1}</h2>
+                  </div>
+                  <div className={`rounded-3xl px-5 py-4 text-sm font-semibold ${status === 'Acerto' ? 'bg-emerald-500/20 text-emerald-200' : 'bg-red-500/20 text-red-200'}`}>
+                    {status}
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-aws-cloud/30 bg-white/5 p-6 text-slate-200">
+                <p className="text-lg font-semibold text-white">{reviewQuestion.pergunta}</p>
+                <div className="mt-4 space-y-3">
+                  <p><span className="font-semibold text-aws-gold">Sua resposta:</span> {response.map((item) => item.toUpperCase()).join(', ') || 'Nenhuma'}</p>
+                  <p><span className="font-semibold text-aws-gold">Resposta correta:</span> {correct.map((item) => item.toUpperCase()).join(', ')}</p>
+                  <div className="rounded-3xl bg-aws-slate/80 p-4 text-sm text-slate-200">
+                    <p className="font-semibold">Explicação:</p>
+                    <p className="mt-2 leading-7">{reviewQuestion.explicacao}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-1 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setReviewIndex((prev) => Math.max(0, prev - 1))}
+                    disabled={reviewIndex === 0}
+                    className="touch-target inline-flex flex-1 items-center justify-center gap-2 rounded-3xl border border-aws-cloud/40 bg-white/5 px-5 py-4 text-base text-slate-100 transition hover:border-aws-orange hover:bg-aws-orange/10 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    <ArrowLeft className="h-5 w-5" /> Anterior
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setReviewIndex((prev) => Math.min(state.questions.length - 1, prev + 1))}
+                    disabled={reviewIndex === state.questions.length - 1}
+                    className="touch-target inline-flex flex-1 items-center justify-center gap-2 rounded-3xl border border-aws-cloud/40 bg-white/5 px-5 py-4 text-base text-slate-100 transition hover:border-aws-orange hover:bg-aws-orange/10 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    Próximo <ArrowRight className="h-5 w-5" />
+                  </button>
+                </div>
+                <button
+                  type="button"
+                  onClick={resetSession}
+                  className="touch-target inline-flex items-center justify-center gap-2 rounded-3xl bg-aws-orange px-5 py-4 text-base font-semibold text-white transition hover:bg-orange-600"
+                >
+                  Voltar ao Início <RefreshCcw className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+          );
+        };
+
+        return (
+          <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-6 pb-12">
+            <section className="rounded-[2rem] border border-aws-cloud/20 bg-gradient-to-br from-aws-slate/80 to-aws-slate/70 p-5 shadow-2xl shadow-black/30 backdrop-blur-xl">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-sm uppercase tracking-[0.28em] text-aws-gold">Simulador Web</p>
+                  <h1 className="mt-2 text-3xl font-semibold text-white">AWS Cloud Practitioner CLF-C02</h1>
+                </div>
+                <div className="rounded-3xl bg-white/5 px-4 py-3 text-sm text-slate-200">
+                  <div className="flex items-center gap-2">
+                    <Clock3 className="h-5 w-5 text-aws-orange" />
+                    <span>Interface Web móvel-first</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {error && (
+              <div className="rounded-3xl border border-red-500/40 bg-red-500/10 p-5 text-red-100">
+                <p className="font-semibold">Erro:</p>
+                <p>{error}</p>
+              </div>
+            )}
+
+            {loading && (
+              <div className="rounded-3xl border border-aws-cloud/30 bg-white/5 p-6 text-center text-slate-200">
+                Carregando interface...
+              </div>
+            )}
+
+            {!loading && !state && renderSimuladoList()}
+            {!loading && state && state.stage === 'quiz' && renderQuiz()}
+            {!loading && state && state.stage === 'finished' && renderFinish()}
+            {!loading && state && state.stage === 'review' && renderReview()}
+          </main>
+        );
+      };
+
+      const root = createRoot(document.getElementById('root'));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

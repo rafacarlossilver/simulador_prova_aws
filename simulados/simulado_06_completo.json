@@ -1,0 +1,928 @@
+{
+  "titulo": "SIMULADO 6 - AWS Cloud Practitioner (CLF-C02)",
+  "autor": "Marcelo Avelino",
+  "questoes": [
+    {
+      "id": 1,
+      "pergunta": "Qual serviço permite executar cargas de trabalho HPC (High Performance Computing) de maneira eficiente?",
+      "opcoes": {
+        "a": "Batch",
+        "b": "EC2",
+        "c": "Lambda",
+        "d": "Elastic Beanstalk"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:**  \n- O Amazon EC2 fornece capacidade computacional escalável na nuvem e permite executar cargas de trabalho HPC de maneira eficiente, fornecendo instâncias otimizadas para HPC com recursos específicos para acelerar o desempenho.\n\n**Incorretas:**  \n- O AWS Batch é um serviço que permite executar em lote cargas de trabalho em larga escala na nuvem, mas não é específico para cargas de trabalho HPC.  \n- O AWS Lambda é um serviço serverless usado para executar código em resposta a eventos, mas não é projetado especificamente para cargas de trabalho HPC.  \n- O Elastic Beanstalk é um serviço que facilita a implantação e o gerenciamento de aplicativos web, mas não é otimizado para cargas de trabalho HPC."
+    },
+    {
+      "id": 2,
+      "pergunta": "No modelo de Responsabilidade Compartilhada, quais controles de TI são compartilhados entre a AWS e o cliente? (selecione 3 alternativas)",
+      "opcoes": {
+        "a": "Conhecimentos e treinamento",
+        "b": "Gerenciamento de configuração",
+        "c": "Controles físicos e ambientais",
+        "d": "Proteção ou zona de segurança de serviços e comunicação, roteamento de dados para ambientes de segurança específicos",
+        "e": "Gerenciamento de patches"
+      },
+      "resposta_correta": [
+        "a",
+        "b",
+        "e"
+      ],
+      "explicacao": "**Correta:**  \n- Os controles compartilhados são: Gerenciamento de patches, Gerenciamento de configuração, Conhecimentos e treinamento.\n\n**Incorretas:**  \n- Controle Herdado da AWS pelo cliente: Controles físicos e ambientais  \n- Controles do cliente: Proteção ou zona de segurança de serviços e comunicação, roteamento de dados para ambientes de segurança específicos"
+    },
+    {
+      "id": 3,
+      "pergunta": "Considerando-se que o pilar de Otimização de Custos do Well-Architected Framework se concentra em evitar custos desnecessários, indique seus tópicos principais:",
+      "opcoes": {
+        "a": "Compreensão dos gastos ao longo do tempo e controle da alocação de fundos, seleção do tipo e quantidade certa de recursos e dimensionamento para atender às necessidades de negócios sem gastos excessivos",
+        "b": "Modelo de responsabilidade compartilhada para sustentabilidade, compreensão do impacto e maximização da utilização para minimizar os recursos necessários e reduzir os impactos posteriores",
+        "c": "Seleção dos tipos e tamanhos certos dos recursos otimizados para os requisitos de workload, monitoramento de performance e manutenção da eficiência à medida que as necessidades comerciais evoluem",
+        "d": "Automação de alterações, reação a eventos e definição de padrões para gerenciar as operações diárias"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:**  \n- O Well-Architected ajuda arquitetos de nuvem a construírem infraestruturas seguras, resilientes, eficientes e de alta performance para aplicações e workloads. Os principais tópicos do pilar Otimização de Custos incluem compreensão dos gastos ao longo do tempo e controle da alocação de fundos, seleção do tipo e quantidade certa de recursos e dimensionamento para atender às necessidades de negócios sem gastos excessivos.\n\n**Incorretas:**  \n- Seleção dos tipos e tamanhos certos dos recursos otimizados para os requisitos de workload, monitoramento de performance e manutenção da eficiência à medida que as necessidades comerciais evoluem refere-se ao pilar Eficiência de Performance.  \n- Modelo de responsabilidade compartilhada para sustentabilidade, compreensão do impacto e maximização da utilização para minimizar os recursos necessários e reduzir os impactos posteriores refere-se ao pilar de Sustentabilidade.  \n- Automação de alterações, reação a eventos e definição de padrões para gerenciar as operações diárias refere-se a Excelência Operacional."
+    },
+    {
+      "id": 4,
+      "pergunta": "Os componentes das soluções do AWS Virtual Private Network (VPN) permitem conexões seguras entre redes locais, escritórios remotos, dispositivos de clientes e a rede global da AWS. Quais são os serviços que compõem essas soluções? (selecione 2 alternativas)",
+      "opcoes": {
+        "a": "AWS Connect",
+        "b": "AWS Direct Connect",
+        "c": "AWS Client VPN",
+        "d": "AWS Site-to-Site VPN",
+        "e": "AWS Storage Gateway"
+      },
+      "resposta_correta": [
+        "c",
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS VPN é constituído por dois serviços principais: o AWS Site-to-Site VPN e o AWS Client VPN. O Site-to-Site VPN estabelece túneis criptografados entre sua rede e as Amazon Virtual Private Clouds ou os AWS Transit Gateways. O AWS Client VPN conecta usuários à AWS ou a recursos locais por meio de um cliente de software VPN.\n\n**Incorretas:**  \n- O Direct Connect cria uma conexão dedicada que não trafega dados fora da infraestrutura da AWS.  \n- O Connect permite a implementação de uma central de atendimento multi-canal.  \n- O Storage Gateway é um serviço de armazenamento em nuvem híbrida."
+    },
+    {
+      "id": 5,
+      "pergunta": "Utilizando as linguagens de programação JavaScript e Kotlin, uma startup deseja desenvolver um software nativo na nuvem de maneira ágil. Qual é a ferramenta que fornece diversos recursos para que os desenvolvedores construam aplicações com mais facilidade na AWS?",
+      "opcoes": {
+        "a": "CodeCommit",
+        "b": "SDK",
+        "c": "Elastic Beanstalk",
+        "d": "CodeBuild"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:**  \n- As AWS SDKs para JavaScript e Kotlin fornecem diversos recursos para o desenvolvimento e compilação de aplicativos na AWS, com suporte para várias linguagens.\n\n**Incorretas:**  \n- O CodeCommit é usado para gerenciamento de código-fonte.  \n- O CodeBuild é usado para compilar e testar o código-fonte.  \n- O Elastic Beanstalk é usado para provisionar o ambiente de execução para uma aplicação."
+    },
+    {
+      "id": 6,
+      "pergunta": "No modelo de Responsabilidade Compartilhada, quais controles que um cliente herda completamente da AWS?",
+      "opcoes": {
+        "a": "Gerenciamento de patches",
+        "b": "Gerenciamento de configuração",
+        "c": "Conhecimentos e treinamento",
+        "d": "Controles físicos e ambientais"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- Controles físicos e ambientais são herdados da AWS, que é responsável pela segurança física e ambiental dos data centers.\n\n**Incorretas:**  \n- Gerenciamento de patches, Gerenciamento de configuração e Conhecimentos e treinamento são controles compartilhados entre a AWS e o cliente."
+    },
+    {
+      "id": 7,
+      "pergunta": "Uma equipe de desenvolvimento pretende administrar o código-fonte de uma aplicação por meio de um repositório centralizado que permita a criação de ramos distintos para o código em fase de desenvolvimento e produção. Por meio de qual serviço essa implementação pode ser realizada?",
+      "opcoes": {
+        "a": "CodeBuild",
+        "b": "CodeCommit",
+        "c": "CodeDeploy",
+        "d": "CodeStar"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:**  \n- CodeCommit é o serviço utilizado para gerenciar código-fonte das aplicações através da tecnologia Git, permitindo o trabalho independente de desenvolvedores com ramos distintos.\n\n**Incorretas:**  \n- CodeBuild é usado para compilar e testar código.  \n- CodeStar é para gerenciar projetos, membros e artefatos.  \n- CodeDeploy é usado para entregar aplicações em servidores."
+    },
+    {
+      "id": 8,
+      "pergunta": "Com qual serviço um time de desenvolvimento pode hospedar e dimensionar aplicativos web com facilidade, sem se preocupar com detalhes da implementação da infraestrutura?",
+      "opcoes": {
+        "a": "EC2",
+        "b": "Lambda",
+        "c": "RDS",
+        "d": "Elastic Beanstalk"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O Elastic Beanstalk é um serviço que permite implantar, gerenciar e escalar aplicativos web facilmente, sem se preocupar com a infraestrutura subjacente.\n\n**Incorretas:**  \n- O EC2 fornece capacidade de processamento escalável por meio de instâncias virtuais.  \n- O Lambda é um serviço serverless usado para executar código em resposta a eventos.  \n- O RDS é um serviço de banco de dados relacional gerenciado."
+    },
+    {
+      "id": 9,
+      "pergunta": "Visando a proteção das cargas de trabalho na AWS, uma organização precisa implementar um sistema de monitoramento para identificação e remoção de possíveis malwares instalados nos serviços da sua conta. Como essa implementação pode ser efetuada?",
+      "opcoes": {
+        "a": "Implemente o Inspector",
+        "b": "Implemente o Shield",
+        "c": "Implemente o Macie",
+        "d": "Implemente o GuardDuty"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O GuardDuty é um serviço de detecção de ameaças que monitora continuamente contas e workloads da AWS para identificar e remover malwares.\n\n**Incorretas:**  \n- Macie é usado para proteger dados confidenciais.  \n- Inspector gerencia vulnerabilidades através da verificação contínua.  \n- Shield é um serviço de proteção contra DDoS."
+    },
+    {
+      "id": 10,
+      "pergunta": "Qual dos seguintes não é um tipo de diretório oferecido pelo AWS Directory Service?",
+      "opcoes": {
+        "a": "AD Connector",
+        "b": "Simple AD",
+        "c": "Microsoft Active Directory (AD) gerenciado",
+        "d": "Simple Storage Service (S3)"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O Simple Storage Service (S3) não é um diretório, mas sim um serviço de armazenamento de objetos.\n\n**Incorretas:**  \n- O AWS Directory Service oferece Microsoft AD gerenciado, AD Connector e Simple AD para gerenciamento de diretórios."
+    },
+    {
+      "id": 11,
+      "pergunta": "Uma empresa tem a intenção de transferir seu CRM para a AWS e ajustar os SLAs para a resolução de incidentes dos seus clientes. Quais são os prazos de resposta implementados pela AWS com base na gravidade do acionamento/incidente?",
+      "opcoes": {
+        "a": "Orientações gerais: menos de 24 horas; Sistema afetado: menos de 12 horas; Sistema de produção afetado: menos de 4 horas; Sistema de produção inativo: menos de 1 hora",
+        "b": "Orientações gerais: menos de 4 horas; Sistema afetado: menos de 3 horas; Sistema de produção afetado: menos de 2 horas; Sistema de produção inativo: menos de 1 hora",
+        "c": "Orientações gerais: menos de 12 horas; Sistema afetado: menos de 6 horas; Sistema de produção afetado: menos de 3 horas; Sistema de produção inativo: menos de 1 hora",
+        "d": "Orientações gerais: menos de 6 horas; Sistema afetado: menos de 4 horas; Sistema de produção afetado: menos de 2 horas; Sistema de produção inativo: menos de 1 hora"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:**  \n- Os tempos de resposta são definidos de acordo com a gravidade dos incidentes, com prazos específicos para orientações gerais, sistemas afetados, e sistemas de produção.\n\n**Incorretas:**  \n- As demais opções não correspondem aos prazos corretos."
+    },
+    {
+      "id": 12,
+      "pergunta": "Uma startup precisa implantar e gerenciar aplicativos serverless, com qual serviço isso é possível?",
+      "opcoes": {
+        "a": "API Gateway",
+        "b": "ECS",
+        "c": "RDS",
+        "d": "Lambda"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS Lambda é um serviço de computação sem servidor que executa código em resposta a eventos, permitindo a execução de funções de forma escalável e automatizada.\n\n**Incorretas:**  \n- O ECS é usado para implantar e gerenciar aplicativos em contêineres.  \n- O RDS é um serviço de banco de dados relacional gerenciado.  \n- O API Gateway é usado para criar e gerenciar APIs."
+    },
+    {
+      "id": 13,
+      "pergunta": "Com o objetivo de reforçar a segurança na esteira de desenvolvimento de uma aplicação, o setor de segurança de uma corretora de investimentos requisitou que as configurações de conexões e senhas para acessar o banco de dados sejam removidas do código-fonte da aplicação. Como é possível atender a essa solicitação sem comprometer tais conexões e o funcionamento da aplicação?",
+      "opcoes": {
+        "a": "Alterando o código fonte para acessar as configurações a partir do Managed Services",
+        "b": "Alterando o código fonte para acessar as configurações a partir do License Manager",
+        "c": "Alterando o código fonte para acessar as configurações a partir do KMS",
+        "d": "Alterando o código fonte para acessar as configurações a partir do Parameter Store"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O Parameter Store é um recurso do AWS Systems Manager que oferece armazenamento hierárquico seguro para gerenciamento de dados de configuração e gerenciamento de segredos como configurações e senhas de bancos de dados.\n\n**Incorretas:**  \n- O License Manager é usado para gerenciar licenças.  \n- O Managed Services oferece recursos proativos e preventivos.  \n- O KMS é usado para gerenciar chaves de criptografia."
+    },
+    {
+      "id": 14,
+      "pergunta": "Uma empresa deseja utilizar o S3 na AWS para armazenar arquivos gerados em aplicações no ambiente on-premisses. De que maneira é possível realizar essa integração?",
+      "opcoes": {
+        "a": "Com o uso do Parameter Store",
+        "b": "Com o uso do Storage Gateway",
+        "c": "Com o uso do EFS",
+        "d": "Com o uso do Backup"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:**  \n- O Storage Gateway é um serviço de armazenamento em nuvem híbrida que permite integrar soluções no ambiente on-premisses com o armazenamento na AWS.\n\n**Incorretas:**  \n- O EFS é usado para sistemas de arquivos elásticos.  \n- O Backup permite criar planos de backup com regras e políticas.  \n- O Parameter Store é usado para armazenamento hierárquico seguro de dados de configuração."
+    },
+    {
+      "id": 15,
+      "pergunta": "Qual serviço é utilizado para criar e gerenciar clusters de servidores de alto desempenho para processamento paralelo?",
+      "opcoes": {
+        "a": "Batch",
+        "b": "EMR",
+        "c": "EKS",
+        "d": "ECS"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:**  \n- O Amazon EMR é utilizado para criar e gerenciar clusters de servidores de alto desempenho para processamento paralelo, usando frameworks como Hadoop e Spark.\n\n**Incorretas:**  \n- O ECS é usado para implantar e gerenciar aplicativos em contêineres.  \n- O EKS é usado para gerenciar aplicativos em contêineres usando Kubernetes.  \n- O AWS Batch é usado para executar cargas de trabalho em larga escala."
+    },
+    {
+      "id": 16,
+      "pergunta": "Para otimizar a performance entre serviços em duas regiões, uma empresa busca conectar esses serviços utilizando a infraestrutura interna da AWS, sem recorrer à internet. Como isso pode ser alcançado?",
+      "opcoes": {
+        "a": "Com o uso do Connect",
+        "b": "Com o uso do API Gateway",
+        "c": "Com o uso do VPN",
+        "d": "Com o uso do Direct Connect"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS Direct Connect é um serviço que oferece uma conexão de rede privada entre suas instalações e a AWS, proporcionando uma alternativa à internet para conexões mais seguras e de baixa latência.\n\n**Incorretas:**  \n- O VPN é usado para conexões virtuais.  \n- O Connect é usado para implementar uma central de atendimento.  \n- O API Gateway é usado para gerenciar APIs."
+    },
+    {
+      "id": 17,
+      "pergunta": "Uma companhia aérea requer que seus passageiros apresentem comprovantes de vacinação para certos trechos e destinos de viagem no check-in. Para agilizar o processo, uma estratégia de automatização consiste em permitir que o passageiro envie o comprovante em formato .pdf ou .jpg por meio do aplicativo da companhia aérea. Qual seria o procedimento mais eficaz para capturar corretamente os dados dos comprovantes no aplicativo?",
+      "opcoes": {
+        "a": "Extrair os dados através da API do Amazon Polly",
+        "b": "Extrair os dados através da API do Amazon Transcribe",
+        "c": "Extrair os dados através da API do Amazon Textract",
+        "d": "Extrair os dados através da API do Amazon Transform"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- O Amazon Textract utiliza aprendizado de máquina para analisar documentos e extrair texto impresso e manuscrito, tabelas e outros dados estruturados, sendo ideal para validação de documentos.\n\n**Incorretas:**  \n- O Transcribe é usado para extrair texto de áudios.  \n- O Polly é usado para converter texto em fala.  \n- O Transform não é um serviço presente na AWS."
+    },
+    {
+      "id": 18,
+      "pergunta": "Uma empresa deseja desenvolver uma aplicação orientada a eventos que possa ser integrada de maneira simples a outras aplicações e serviços da AWS. Qual abordagem é mais adequada para atender à arquitetura e facilitar a ágil integração dessa aplicação?",
+      "opcoes": {
+        "a": "Criar um barramento de eventos com o CodeStar",
+        "b": "Criar um barramento de eventos com o CodePipeline",
+        "c": "Criar um barramento de eventos com o Kinesis",
+        "d": "Criar um barramento de eventos com o EventBridge"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O EventBridge é um barramento de eventos sem servidor que facilita a criação de aplicações orientadas por eventos, com regras de roteamento para determinar o destino dos dados.\n\n**Incorretas:**  \n- O CodePipeline fornece uma esteira de CI/CD.  \n- O CodeStar é usado para gerenciar projetos e integração com Jira.  \n- O Kinesis é usado para transmitir dados em tempo real."
+    },
+    {
+      "id": 19,
+      "pergunta": "Após uma fusão, uma empresa precisa integrar rapidamente 1000 novos colaboradores em suas instalações. Quais são as possíveis abordagens para alcançar essa integração de maneira eficiente?",
+      "opcoes": {
+        "a": "Utilizar o AWS Connect configurado e implantado, fornecendo acesso seguro por meio do cliente VPN",
+        "b": "Utilizar o AWS Site-to-Site VPN configurado e implantado, fornecendo acesso seguro por meio do cliente VPN",
+        "c": "Utilizar o AWS Client VPN configurado e implantado, fornecendo acesso seguro por meio do cliente VPN",
+        "d": "Utilizar o AWS Direct Connect configurado e implantado, fornecendo acesso seguro por meio do cliente VPN"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS Client VPN é ideal para conectar usuários à AWS ou a recursos locais por meio de um cliente de software VPN, proporcionando acesso remoto seguro.\n\n**Incorretas:**  \n- O Site-to-Site VPN cria túneis criptografados para redes locais.  \n- O Direct Connect é uma conexão dedicada, não trafega dados fora da AWS.  \n- O Connect é para central de atendimento."
+    },
+    {
+      "id": 20,
+      "pergunta": "Uma empresa de telemarketing deseja implementar inteligência artificial para gerar insights para melhorias nos processos de sua central de atendimento. Utilizando a central de atendimento em operação, qual serviço da AWS pode ser utilizado para implementar inteligência artificial na mesma?",
+      "opcoes": {
+        "a": "Quicksight",
+        "b": "Connect",
+        "c": "Marketplace",
+        "d": "Contact Center Intelligence (CCI)"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O CCI permite adicionar recursos de IA à central de atendimento, melhorando a experiência do cliente e a produtividade dos atendentes, sem conhecimento prévio de machine learning.\n\n**Incorretas:**  \n- O Amazon Connect é para criar centrais de atendimento.  \n- O Marketplace é usado para vender e comprar soluções prontas na AWS.  \n- O Quicksight é para visualização de dados e insights."
+    },
+    {
+      "id": 21,
+      "pergunta": "Uma empresa planeja implementar o Single Sign-On (SSO) em todos os seus aplicativos. Qual benefício ela busca alcançar com essa iniciativa?",
+      "opcoes": {
+        "a": "Autenticar usuários por meio de dispositivos móveis como duplo fator de segurança.",
+        "b": "Exigir múltiplos logins para acessar com segurança os recursos da AWS.",
+        "c": "Permitir que os usuários efetuem login uma única vez e acessem múltiplas contas e aplicativos sem a necessidade de fazer login repetidamente.",
+        "d": "Criar várias contas de usuário de modo simultâneo na AWS."
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- O SSO permite que usuários façam login uma vez e acessem várias contas e aplicativos, proporcionando maior conveniência e eficiência no acesso.\n\n**Incorretas:**  \n- SSO não se refere a criar várias contas de usuário.  \n- Não requer múltiplos logins, elimina a necessidade de vários logins.  \n- Não é uma medida de segurança específica para dispositivos móveis."
+    },
+    {
+      "id": 22,
+      "pergunta": "De tempos em tempos, uma equipe de desenvolvimento replica arquivos e dados de produção do S3 para realizar testes em aplicações em outros ambientes. Com qual serviço é viável monitorar dados sensíveis, evitando sua exposição em tais contextos e em outros?",
+      "opcoes": {
+        "a": "WAF",
+        "b": "Inspector",
+        "c": "Shield",
+        "d": "Macie"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS Macie é um serviço de segurança que utiliza aprendizado de máquina para identificar e proteger dados confidenciais e sensíveis na infraestrutura, ajudando a evitar exposições não autorizadas.\n\n**Incorretas:**  \n- O Inspector gerencia vulnerabilidades através de verificações contínuas.  \n- O Shield protege contra ataques DDoS.  \n- O WAF protege contra explorações comuns da Web e bots."
+    },
+    {
+      "id": 23,
+      "pergunta": "Uma agência de turismo almeja criar um blog em um ambiente extremamente seguro, acessível e eficiente. Como isso pode ser alcançado através do uso de um provedor de Servidor Privado Virtual (VPS)?",
+      "opcoes": {
+        "a": "Hospedando o blog com o ECS",
+        "b": "Hospedando o blog com o Lambda",
+        "c": "Hospedando o blog com o Kinesis",
+        "d": "Hospedando o blog com o Lightsail"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O Amazon Lightsail é um provedor de servidor privado virtual (VPS) ideal para construir e hospedar aplicações na nuvem, como um blog, de forma simples e econômica.\n\n**Incorretas:**  \n- O ECS é usado para implementação de microsserviços e contêineres.  \n- O Lambda é usado para funções sem servidor.  \n- O Kinesis é usado para transmissão de dados em tempo real."
+    },
+    {
+      "id": 24,
+      "pergunta": "Uma empresa situada em uma região com conectividade limitada à internet deseja processar e transferir dados periodicamente de suas cargas de trabalho na AWS. Qual serviço pode ser empregado para essa finalidade?",
+      "opcoes": {
+        "a": "Direct Connect",
+        "b": "Snowcone",
+        "c": "Snowball Edge",
+        "d": "Snowmobile"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- O Snowball Edge é um dispositivo físico da AWS utilizado para processar e migrar dados em larga escala para a AWS, ideal para locais com baixa conectividade à internet.\n\n**Incorretas:**  \n- O Snowmobile é usado para migração de dados em petabytes.  \n- O Snowcone é um dispositivo menor e portátil para migração de dados.  \n- O Direct Connect é uma conexão dedicada para melhorar a conectividade com a AWS."
+    },
+    {
+      "id": 25,
+      "pergunta": "Uma desenvolvedora precisa migrar uma aplicação que faz uso de um sistema de arquivos para a AWS. Quais são os serviços necessários para alocar essa aplicação neste novo ambiente?",
+      "opcoes": {
+        "a": "EC2 e Storage Gateway",
+        "b": "EC2 e EBS",
+        "c": "ECS e S3",
+        "d": "EC2 e EFS"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O EC2 é usado para a aplicação, enquanto o EFS é um sistema de arquivos elástico para compartilhar armazenamento entre instâncias EC2.\n\n**Incorretas:**  \n- O Storage Gateway é para integração de armazenamento híbrido.  \n- O EBS é usado para armazenamento em bloco para EC2.  \n- O S3 é para armazenamento de objetos, não para sistemas de arquivos."
+    },
+    {
+      "id": 26,
+      "pergunta": "Uma startup deseja migrar integralmente a carga de trabalho de seus aplicativos para a AWS, enfrentando a limitação de uma equipe de TI com insuficiente quantidade de colaboradores para assegurar o desenvolvimento de novas funcionalidades e suporte. Diante desse cenário, qual serviço da AWS se torna fundamental para atender às exigências de suporte dessa startup?",
+      "opcoes": {
+        "a": "License Manager",
+        "b": "Managed Services",
+        "c": "Marketplace",
+        "d": "Parameter Store"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:**  \n- O Managed Services fornece recursos proativos, preventivos e de detecção, ajudando a reduzir riscos e permitindo que a empresa se concentre na inovação.\n\n**Incorretas:**  \n- O License Manager é usado para gerenciar licenças.  \n- O Marketplace é um portal para encontrar e vender soluções prontas.  \n- O Parameter Store é para gerenciamento de dados de configuração."
+    },
+    {
+      "id": 27,
+      "pergunta": "O site de vendas de uma CIA aérea vem apresentando indisponibilidades constantes devido ao grande número de requisições das páginas feitas por bots de forma não autorizada. De que maneira este site pode ser protegido?",
+      "opcoes": {
+        "a": "Criando regras contra explorações indevidas da Web através do Shield",
+        "b": "Criando regras contra explorações indevidas da Web através do Inspector",
+        "c": "Criando regras contra explorações indevidas da Web através do Macie",
+        "d": "Criando regras contra explorações indevidas da Web através do WAF"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS Web Application Firewall (WAF) protege aplicativos da web contra ameaças e vulnerabilidades, incluindo atividades suspeitas como scraping de dados e ataques de força bruta.\n\n**Incorretas:**  \n- O Macie é usado para proteger dados confidenciais.  \n- O Inspector gerencia vulnerabilidades.  \n- O Shield é para proteção contra DDoS."
+    },
+    {
+      "id": 28,
+      "pergunta": "Uma empresa busca aprimorar o desempenho e diminuir os custos de uma aplicação que faz uso intenso de dados. Como é viável minimizar as operações de entrada e saída nos bancos de dados para atingir esse objetivo?",
+      "opcoes": {
+        "a": "Implementando o CloudSearch entre a aplicação e o banco de dados",
+        "b": "Implementando o Lambda entre a aplicação e o banco de dados",
+        "c": "Implementando o Kinesis entre a aplicação e o banco de dados",
+        "d": "Implementando o ElastiCache entre a aplicação e o banco de dados"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O ElastiCache permite armazenar os dados da aplicação em cache, reduzindo a carga operacional e melhorando o desempenho do banco de dados e da aplicação.\n\n**Incorretas:**  \n- O Kinesis é para captura e transmissão de dados em tempo real.  \n- O CloudSearch é para mecanismos de busca nas aplicações.  \n- O Lambda é para funções sem servidor."
+    },
+    {
+      "id": 29,
+      "pergunta": "O CTO de uma empresa requisitou a adesão a um plano de suporte que garanta respostas da AWS em menos de 15 minutos para incidentes que causem inatividade nos sistemas essenciais ao negócio. Qual seria o plano de suporte recomendado para atender a esse SLA?",
+      "opcoes": {
+        "a": "Enterprise On-ramp",
+        "b": "Developer",
+        "c": "Business",
+        "d": "Enterprise"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O plano Enterprise é a única opção de suporte que oferece uma resposta garantida em menos de 15 minutos, essencial para manter a disponibilidade e confiabilidade das operações na nuvem.\n\n**Incorretas:**  \n- Enterprise On-Ramp oferece resposta em menos de 30 minutos.  \n- Business oferece resposta em menos de 1 hora.  \n- Developer não é recomendado para produção."
+    },
+    {
+      "id": 30,
+      "pergunta": "Qual serviço deve ser utilizado para que uma equipe de suporte receba um e-mail quando algum alerta de monitoramento for gerado pelo CloudWatch?",
+      "opcoes": {
+        "a": "SQS",
+        "b": "SNS",
+        "c": "SES",
+        "d": "Budget"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- O Simple Email Service (SES) pode ser integrado a serviços da AWS para enviar mensagens por email sobre a evolução de processos, implantações e alertas de monitoramento.\n\n**Incorretas:**  \n- O SNS é um serviço de Pub/Sub para mensagens.  \n- O SQS é um sistema de mensageria para desacoplamento de microsserviços.  \n- O Budget gerencia orçamentos pré-definidos pelo cliente."
+    },
+    {
+      "id": 31,
+      "pergunta": "Para gerenciar crédito e riscos de forma eficaz, um grande banco necessita executar processamentos em lotes com computação de alto desempenho. Qual serviço pode ser empregado para reduzir erros humanos, aumentar a velocidade e precisão, e diminuir os custos por meio da automação nesse tipo de negócio?",
+      "opcoes": {
+        "a": "AWS Batch",
+        "b": "AWS SageMaker",
+        "c": "AWS Step Functions",
+        "d": "AWS Kinesis"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS Batch automatiza a obtenção de recursos e o cronograma de trabalhos em lote, aumentando a velocidade e a economia de custos, ideal para cargas de trabalho com alta computação.\n\n**Incorretas:**  \n- O AWS Step Functions orquestra serviços da AWS.  \n- O AWS Kinesis é para dados em tempo real.  \n- O AWS SageMaker é para criar e implementar modelos de Machine Learning."
+    },
+    {
+      "id": 32,
+      "pergunta": "Uma empresa enfrenta incidentes frequentes decorrentes de alterações nas configurações de recursos de aplicativos críticos. Qual serviço pode ser utilizado para avaliar e auditar de maneira contínua as configurações e os relacionamentos desses recursos, visando evitar problemas operacionais?",
+      "opcoes": {
+        "a": "AWS CloudTrail",
+        "b": "AWS CloudSearch",
+        "c": "AWS ElastiCache",
+        "d": "AWS Config"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS Config permite avaliar e auditar continuamente as configurações e os relacionamentos dos recursos, contribuindo para a conformidade e evitando problemas operacionais.\n\n**Incorretas:**  \n- O ElastiCache é usado para armazenar dados em cache.  \n- O CloudSearch é para mecanismos de busca nas aplicações.  \n- O CloudTrail é para logar chamadas das APIs de serviços da AWS."
+    },
+    {
+      "id": 33,
+      "pergunta": "A partir de diversas origens, você deseja preparar dados de maneira simples, rápida e barata para serem processados por um modelo de machine learning no Sagemaker. Qual é o serviço de integração de dados com tecnologia sem servidor recomendado para esse processo?",
+      "opcoes": {
+        "a": "Redshift",
+        "b": "DMS",
+        "c": "DataSync",
+        "d": "Glue"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS Glue é um serviço de integração de dados com tecnologia sem servidor que torna a preparação de dados mais simples, rápida e barata, indicado para ETL.\n\n**Incorretas:**  \n- O AWS Redshift é para Business Intelligence.  \n- O AWS DataSync é para sincronização automática de dados.  \n- O DMS é para migração de banco de dados."
+    },
+    {
+      "id": 34,
+      "pergunta": "Uma organização pública utiliza softwares da Microsoft, Oracle e JetBrains, os quais são utilizados por mais de 1000 funcionários. A organização necessita gerenciar as licenças adquiridas desses softwares para evitar desperdícios, otimizar o uso e manter a conformidade em relação aos limites estabelecidos nos contratos com os fornecedores. Por meio de qual serviço é possível alcançar esse objetivo?",
+      "opcoes": {
+        "a": "Através do Parameter Store",
+        "b": "Através do Marketplace",
+        "c": "Através do Config",
+        "d": "Através do License Manager"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O License Manager permite gerenciar as licenças ao rastrear o seu uso, controlando custos e garantindo a conformidade com o limite de uso.\n\n**Incorretas:**  \n- O Config gerencia configurações e conformidade.  \n- O Marketplace é um portal para encontrar e vender soluções.  \n- O Parameter Store é para gerenciamento de dados de configuração."
+    },
+    {
+      "id": 35,
+      "pergunta": "Uma empresa está interessada em implementar o Amazon Translate em certos processos de tradução de texto. Quais são as opções para iniciar o uso deste serviço? (selecione 3 alternativas)",
+      "opcoes": {
+        "a": "Através da CLI",
+        "b": "Através das SDKs",
+        "c": "Através do MFA",
+        "d": "Através do Console",
+        "e": "Através do IAM"
+      },
+      "resposta_correta": [
+        "a",
+        "b",
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O Amazon Translate pode ser utilizado através do console, da Interface da Linha de Comando da AWS (CLI) e das SDKs, facilitando a tradução de textos entre diversos idiomas suportados.\n\n**Incorretas:**  \n- O MFA é para autenticação multifator.  \n- O IAM gerencia acessos de usuários e recursos."
+    },
+    {
+      "id": 36,
+      "pergunta": "Para possibilitar integrações entre aplicativos, sua empresa deseja criar APIs RESTful altamente escaláveis. Com qual serviço isso pode ser feito?",
+      "opcoes": {
+        "a": "CloudFront",
+        "b": "AppSync",
+        "c": "Elastic Load Balancer",
+        "d": "API Gateway"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O API Gateway facilita a criação, implantação e gerenciamento de APIs RESTful, oferecendo recursos como escalabilidade automática e autenticação.\n\n**Incorretas:**  \n- O CloudFront é uma CDN para entrega de conteúdo.  \n- O AppSync é para criar APIs GraphQL.  \n- O Elastic Load Balancer distribui tráfego entre instâncias."
+    },
+    {
+      "id": 37,
+      "pergunta": "Com o intuito de diminuir custos, aumentar o desempenho e reforçar a segurança de suas cargas de trabalho, uma empresa planeja fazer uso das verificações abrangentes do AWS Trusted Advisor. Todos os planos de suporte incluem essas verificações, com exceção de qual?",
+      "opcoes": {
+        "a": "Enterprise",
+        "b": "Business",
+        "c": "Enterprise On-ramp",
+        "d": "Developer"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O plano Developer oferece apenas verificações básicas de segurança e cotas de serviço, enquanto os outros planos oferecem verificações completas.\n\n**Incorretas:**  \n- Todos os demais planos oferecem verificações completas."
+    },
+    {
+      "id": 38,
+      "pergunta": "Dado que o pilar de Excelência Operacional do Well-Architected Framework se dedica à execução e monitoramento de sistemas, bem como à melhoria contínua de processos e procedimentos, aponte seus principais tópicos.",
+      "opcoes": {
+        "a": "Projeto de sistemas distribuídos, planejamento de recuperação e requisitos de adaptação a mudanças",
+        "b": "Seleção dos tipos e tamanhos certos dos recursos otimizados para os requisitos de workload",
+        "c": "Confidencialidade e integridade de dados, gerenciamento de permissões de usuário",
+        "d": "Automação de alterações, reação a eventos e definição de padrões para gerenciar as operações diárias"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- Os principais tópicos do pilar Excelência Operacional incluem automação de alterações, reação a eventos e definição de padrões para gerenciar as operações diárias.\n\n**Incorretas:**  \n- Confidencialidade e integridade de dados referem-se ao pilar de Segurança.  \n- Projeto de sistemas distribuídos refere-se ao pilar de Confiabilidade.  \n- Seleção de recursos refere-se ao pilar de Eficiência de Performance."
+    },
+    {
+      "id": 39,
+      "pergunta": "De que maneira um auditor consegue auditar atividades em contas da AWS?",
+      "opcoes": {
+        "a": "Através do AWS Config",
+        "b": "Através do AWS CloudWatch",
+        "c": "Através do Amazon Macie",
+        "d": "Através do AWS CloudTrail"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS CloudTrail registra e monitora atividades realizadas na conta da AWS, incluindo ações do usuário, chamadas de API e alterações de configuração.\n\n**Incorretas:**  \n- O AWS Config gerencia conformidade e configurações.  \n- O AWS CloudWatch é para monitoramento e observabilidade.  \n- O Amazon Macie é para descoberta e proteção de dados confidenciais."
+    },
+    {
+      "id": 40,
+      "pergunta": "A AWS tem ajudado os clientes que precisam implantar aplicações com requisitos de baixa latência ou com processamento de dados em data centers locais. Qual serviço fornece racks de computação e armazenamento para que os clientes possam executar tarefas de computação e armazenamento on-premises?",
+      "opcoes": {
+        "a": "Zonas locais da AWS",
+        "b": "AWS Outposts",
+        "c": "AWS Direct Connect",
+        "d": "AWS Spot"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS Outposts são racks de computação e armazenamento gerenciados que permitem executar tarefas on-premises, conectando-se facilmente aos serviços da AWS na nuvem.\n\n**Incorretas:**  \n- O AWS Local Zones posiciona recursos perto do público e dos centros industriais.  \n- O AWS Direct Connect é para conexões de rede dedicadas.  \n- Spot é um modelo de uso de instâncias EC2 com descontos."
+    },
+    {
+      "id": 41,
+      "pergunta": "Qual serviço foi desenvolvido para que os analistas de BI (Business Intelligenc",
+      "opcoes": {
+        "e": "executem análises avançadas e consultas complexas em grandes conjuntos de dados?",
+        "a": "Aurora",
+        "b": "DynamoDB",
+        "c": "Redshift",
+        "d": "RDS"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- O Amazon Redshift é um serviço de data warehouse projetado para análises avançadas e consultas complexas em grandes conjuntos de dados.\n\n**Incorretas:**  \n- Aurora é um banco de dados relacional.  \n- RDS é um serviço de banco de dados relacional gerenciado.  \n- DynamoDB é um banco de dados NoSQL."
+    },
+    {
+      "id": 42,
+      "pergunta": "Um banco de investimentos opera diversos aplicativos web de importância crítica na AWS e busca visibilidade e proteção contra ataques DDoS tanto sofisticados quanto comuns. Qual serviço seria empregado para atender a essa necessidade?",
+      "opcoes": {
+        "a": "Inspector",
+        "b": "Macie",
+        "c": "Detective",
+        "d": "Shield"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS Shield oferece proteção automatizada contra ameaças de DDoS, garantindo que ataques não prejudiquem o desempenho ou a disponibilidade dos aplicativos.\n\n**Incorretas:**  \n- Macie protege dados confidenciais.  \n- Inspector gerencia vulnerabilidades.  \n- Detective gera insights a partir do tráfego de dados."
+    },
+    {
+      "id": 43,
+      "pergunta": "Uma empresa deseja melhorar a sua relação com os seus clientes em sua central de atendimento. Através do uso de inteligência artificial, quais serviços da AWS podem ser utilizados na solução? (selecione 2 alternativas)",
+      "opcoes": {
+        "a": "AWS Organizations",
+        "b": "Amazon Connect",
+        "c": "AWS Marketplace",
+        "d": "AWS Direct Connect",
+        "e": "AWS Contact Center Intelligence (CCI)"
+      },
+      "resposta_correta": [
+        "b",
+        "e"
+      ],
+      "explicacao": "**Correta:**  \n- Amazon Connect é ideal para implementar uma central de atendimento multi-canal.  \n- CCI melhora a experiência do cliente, impulsiona a produtividade dos atendentes e obtém insights de conversas com IA.\n\n**Incorretas:**  \n- Direct Connect cria conexões dedicadas.  \n- Marketplace é para venda de soluções prontas.  \n- Organizations gerencia contas e custos."
+    },
+    {
+      "id": 44,
+      "pergunta": "Um desenvolvedor de um aplicativo backend deseja possibilitar o acesso seguro a dados online para outros sistemas por meio de APIs. De que forma é possível realizar essas integrações de maneira segura?",
+      "opcoes": {
+        "a": "Através do Managed Services",
+        "b": "Através do Lambda",
+        "c": "Através do Certificate Manager",
+        "d": "Através do API Gateway"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O API Gateway permite a criação, publicação, manutenção, monitoração e proteção de APIs, funcionando como a “porta de entrada” para aplicativos acessarem dados.\n\n**Incorretas:**  \n- Lambda é para funções sem servidor.  \n- Certificate Manager gerencia certificados SSL/TLS.  \n- Managed Services fornece recursos operacionais."
+    },
+    {
+      "id": 45,
+      "pergunta": "Com o objetivo de assegurar a segurança e disponibilidade de suas cargas de trabalho, uma empresa requer que a equipe de suporte do Concierge forneça assistência e suporte para as contas da AWS. Quais planos de suporte oferecem esse serviço? (selecione 2 alternativas)",
+      "opcoes": {
+        "a": "Developer",
+        "b": "Enterprise",
+        "c": "Basic",
+        "d": "Enterprise On-Ramp",
+        "e": "Business"
+      },
+      "resposta_correta": [
+        "b",
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- Enterprise e Enterprise On-Ramp são os únicos planos que oferecem suporte Concierge.\n\n**Incorretas:**  \n- Developer, Basic e Business não oferecem esse tipo de suporte."
+    },
+    {
+      "id": 46,
+      "pergunta": "Para atender aos requisitos de conformidade corporativa, contratual e regulatória, uma empresa necessita criptografar seus dados e aplicativos usando chaves de criptografia armazenadas em um dispositivo de hardware inviolável. De que maneira é viável realizar esse processo?",
+      "opcoes": {
+        "a": "Com o uso do Config",
+        "b": "Com o uso do Secrets Manager",
+        "c": "Com o uso do Managed Services",
+        "d": "Com o uso do CloudHSM"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O CloudHSM oferece armazenamento de chaves e operações criptográficas seguras em um dispositivo de hardware inviolável.\n\n**Incorretas:**  \n- Managed Services oferece recursos operacionais.  \n- Secrets Manager gerencia e recupera segredos.  \n- Config gerencia configurações e conformidade."
+    },
+    {
+      "id": 47,
+      "pergunta": "Diante de preocupações com desempenho, a equipe recebeu a recomendação de aprimorar o banco de dados da aplicação. Como pode ser realizado o processo de migração dos dados para esse novo banco de dados?",
+      "opcoes": {
+        "a": "Configure uma instância do DataSync no banco de destino",
+        "b": "Configure uma instância do RDS no banco de destino",
+        "c": "Configure uma instância do DynamoDB no banco de destino",
+        "d": "Configure uma instância do DMS no banco de destino"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS Database Migration Service (DMS) simplifica a transferência eficiente e segura de dados entre diferentes ambientes, garantindo integridade e consistência durante as migrações.\n\n**Incorretas:**  \n- RDS é para implementação de bancos de dados relacionais.  \n- DynamoDB é para bancos de dados NoSQL.  \n- DataSync é para sincronização de dados entre ambientes on-premises e AWS."
+    },
+    {
+      "id": 48,
+      "pergunta": "Quais são os recursos disponíveis para monitorar eventos no Amazon EventBridge?",
+      "opcoes": {
+        "a": "Console de eventos do Amazon EventBridge",
+        "b": "Trilha de auditoria do AWS CloudTrail",
+        "c": "Logs de eventos e métricas do CloudWatch",
+        "d": "Todas as opções estão corretas"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- Todas as opções são corretas. O EventBridge pode ser monitorado por meio de logs de eventos e métricas do CloudWatch, além da trilha de auditoria do CloudTrail e do console do próprio EventBridge."
+    },
+    {
+      "id": 49,
+      "pergunta": "Qual serviço da AWS é um banco de dados NoSQL, totalmente gerenciado e compatível com o MongoDB?",
+      "opcoes": {
+        "a": "RDS",
+        "b": "Aurora",
+        "c": "DocumentDB",
+        "d": "Route53"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- O DocumentDB é um banco de dados NoSQL totalmente gerenciado e compatível com o MongoDB.\n\n**Incorretas:**  \n- Aurora é um banco de dados relacional.  \n- Route53 é um serviço de DNS.  \n- RDS é para bancos de dados relacionais."
+    },
+    {
+      "id": 50,
+      "pergunta": "Qual serviço é adequado para armazenar arquivos e compartilhá-los entre várias instâncias EC2?",
+      "opcoes": {
+        "a": "KMS",
+        "b": "DocumentDB",
+        "c": "Aurora",
+        "d": "EFS"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O EFS (Elastic File System) é projetado para armazenar dados de arquivos e compartilhá-los entre várias instâncias EC2.\n\n**Incorretas:**  \n- KMS gerencia chaves de criptografia.  \n- Aurora é um banco de dados relacional.  \n- DocumentDB é um banco de dados NoSQL compatível com MongoDB."
+    },
+    {
+      "id": 51,
+      "pergunta": "Para que tipo de cenário o AWS IoT Greengrass é mais adequado?",
+      "opcoes": {
+        "a": "Análise de big data em lote",
+        "b": "Armazenamento de arquivos de mídia",
+        "c": "Hospedagem de sites da web",
+        "d": "Aplicações de IoT que exigem baixa latência e capacidade de processamento local"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS IoT Greengrass é ideal para aplicações de IoT que exigem baixa latência e capacidade de processamento local, permitindo que dispositivos executem código na borda da rede.\n\n**Incorretas:**  \n- Armazenamento de arquivos de mídia pode ser feito com S3.  \n- Análise de big data em lote é realizada com EMR.  \n- Hospedagem de sites da web pode ser feita com S3, EC2, ou Elastic Beanstalk."
+    },
+    {
+      "id": 52,
+      "pergunta": "Uma engenheira DevOps está construindo uma esteira com diversos serviços para habilitar um processo de integração e entrega contínua (CI/CD) para o time de desenvolvimento da sua empresa. Qual serviço da AWS é utilizado para esse tipo de implementação?",
+      "opcoes": {
+        "a": "AWS Step Functions",
+        "b": "AWS Workflow",
+        "c": "AWS CodeCommit",
+        "d": "AWS CodePipeline"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS CodePipeline é um serviço gerenciado de entrega contínua que automatiza as fases de compilação, teste e implantação do processo de liberação.\n\n**Incorretas:**  \n- CodeCommit é um serviço de controle de origem.  \n- Workflow não existe na AWS.  \n- Step Functions é um serviço de fluxo de trabalho visual."
+    },
+    {
+      "id": 53,
+      "pergunta": "Uma organização precisa estabelecer um processo para troca de arquivos de dados entre o seu ambiente on-premises e a AWS. De que maneira esse processo pode ser implementado?",
+      "opcoes": {
+        "a": "Configurando um agente AWS Glue tanto no ambiente local quanto na AWS",
+        "b": "Configurando um agente AWS Glacier tanto no ambiente local quanto na AWS",
+        "c": "Configurando um agente AWS DMS tanto no ambiente local quanto na AWS",
+        "d": "Configurando um agente AWS DataSync tanto no ambiente local quanto na AWS"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS DataSync automatiza e acelera a movimentação de dados entre serviços de armazenamento on-premises e da AWS.\n\n**Incorretas:**  \n- DMS é utilizado para migração de bancos de dados.  \n- Glue é utilizado para ETL.  \n- Glacier é para armazenamento de arquivos raramente acessados."
+    },
+    {
+      "id": 54,
+      "pergunta": "Uma organização busca implantar dashboards interativos que possibilitem que todos os colaboradores compreendam seus dados por meio de perguntas formuladas em linguagem natural. Qual serviço pode ser empregado para atender a essa finalidade?",
+      "opcoes": {
+        "a": "Athena",
+        "b": "EMR",
+        "c": "Kinesis",
+        "d": "QuickSight"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O Amazon QuickSight permite a visualização de dados por meio de perguntas em linguagem natural e dashboards interativos.\n\n**Incorretas:**  \n- Kinesis é para streaming de dados em tempo real.  \n- Athena é para consultas em S3.  \n- EMR é para processamento de dados em larga escala."
+    },
+    {
+      "id": 55,
+      "pergunta": "Um monólito foi refatorado em microsserviços antes de ser migrado para AWS. Qual serviço deve ser utilizado para implantá-lo e executá-lo para torná-lo altamente escalável?",
+      "opcoes": {
+        "a": "Elastic Beanstalk",
+        "b": "ECS",
+        "c": "EC2",
+        "d": "Lambda"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:**  \n- O ECS é usado para implantar e gerenciar microsserviços altamente escaláveis em contêineres.\n\n**Incorretas:**  \n- Lambda é para funções sem servidor.  \n- EC2 é para instâncias de computação em nuvem.  \n- Elastic Beanstalk facilita a implantação e o gerenciamento de aplicativos web."
+    },
+    {
+      "id": 56,
+      "pergunta": "Levando em conta as responsabilidades do cliente e da AWS no modelo de responsabilidade compartilhada, todas as afirmações são precisas, exceto?",
+      "opcoes": {
+        "a": "A AWS mantém o datacenter global, mas o cliente é responsável por manter os hardwares dos hosts utilizados pelas suas cargas de trabalho",
+        "b": "A AWS treina funcionários da AWS, mas o cliente deve treinar seus próprios funcionários",
+        "c": "A AWS mantém a configuração dos dispositivos de infraestrutura, mas o cliente é responsável pela configuração dos seus próprios bancos de dados, aplicativos e sistemas operacionais convidados",
+        "d": "A AWS é responsável pela aplicação de patches e pela correção de falhas na infraestrutura, mas os clientes são responsáveis pela aplicação de patches em seu SO convidado e nos seus aplicativos"
+      },
+      "resposta_correta": [],
+      "explicacao": "**Correta:**  \n- A AWS mantém toda a infraestrutura global, incluindo os hosts utilizados pelos clientes.\n\n**Incorretas:**  \n- Controle compartilhado correto: a AWS aplica patches na infraestrutura, mas o cliente é responsável pelo SO e aplicativos."
+    },
+    {
+      "id": 57,
+      "pergunta": "Para estabelecer uma infraestrutura resiliente, uma empresa busca criar duas redes isoladas em zonas de disponibilidade diferentes. Qual serviço possibilita essa implementação?",
+      "opcoes": {
+        "a": "VPN",
+        "b": "Connect",
+        "c": "VPC",
+        "d": "Direct Connect"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- A Amazon VPC permite a criação de uma porção isolada e logicamente definida na nuvem da AWS.\n\n**Incorretas:**  \n- VPN é para conexões virtuais.  \n- Connect é para centrais de atendimento.  \n- Direct Connect é para conexões dedicadas."
+    },
+    {
+      "id": 58,
+      "pergunta": "Uma empresa planeja lançar um aplicativo móvel com autenticação federada pelas principais redes sociais do mercado. Qual a abordagem recomendada para implementar essa funcionalidade?",
+      "opcoes": {
+        "a": "Utilizar o SDK Managed Services para facilitar a autenticação em seu aplicativo",
+        "b": "Utilizar o SDK Cognito para facilitar a autenticação em seu aplicativo",
+        "c": "Utilizar o SDK Connect para facilitar a autenticação em seu aplicativo",
+        "d": "Utilizar o SDK GuardDuty para facilitar a autenticação em seu aplicativo"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:**  \n- O Amazon Cognito fornece autenticação, autorização e gerenciamento de usuários, incluindo login social com Facebook, Google, entre outros.\n\n**Incorretas:**  \n- Managed Services é para recursos operacionais.  \n- Connect é para centrais de atendimento.  \n- GuardDuty é para detecção de ameaças."
+    },
+    {
+      "id": 59,
+      "pergunta": "Uma empresa deseja manter seus escritórios conectados a aplicativos na AWS com a melhor performance possível. Qual serviço poderá atendê-la?",
+      "opcoes": {
+        "a": "WAF",
+        "b": "Direct Connect",
+        "c": "Connect",
+        "d": "Macie"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:**  \n- O Amazon Direct Connect estabelece uma ligação física privada entre a AWS e o ambiente local, reduzindo latência e variação no tráfego.\n\n**Incorretas:**  \n- Macie é para proteção de dados confidenciais.  \n- WAF é para proteção contra ameaças web.  \n- Connect é para centrais de atendimento."
+    },
+    {
+      "id": 60,
+      "pergunta": "Uma startup deseja lançar um app em produção. Qual é o plano de suporte mínimo recomendado para essa finalidade?",
+      "opcoes": {
+        "a": "Enterprise On-ramp",
+        "b": "Developer",
+        "c": "Business",
+        "d": "Enterprise"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- O plano Business é o mínimo recomendado para workloads de produção na AWS, oferecendo suporte 24/7 e assistência em questões críticas.\n\n**Incorretas:**  \n- Developer é para experimentação ou testes.  \n- Enterprise On-Ramp é para workloads essenciais à produção.  \n- Enterprise é para negócios e/ou workloads essenciais."
+    },
+    {
+      "id": 61,
+      "pergunta": "Uma organização utiliza o Parameter Store para armazenar valores de parâmetros, como senhas, strings de banco de dados, IDs de Amazon Machine Images (AMIs) e códigos de licença. Esses parâmetros necessitam passar por um ciclo de atualização automática a cada 6 meses. A que serviço o Parameter Store deve ser vinculado para realizar essa integração?",
+      "opcoes": {
+        "a": "Ao License Manager",
+        "b": "Ao Config",
+        "c": "Ao Secrets Manager",
+        "d": "Ao Managed Services"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- O Secrets Manager gerencia e alterna credenciais de acesso, permitindo a programação de alterações automáticas.\n\n**Incorretas:**  \n- License Manager gerencia licenças de software.  \n- Config gerencia configurações de serviços.  \n- Managed Services oferece recursos operacionais."
+    },
+    {
+      "id": 62,
+      "pergunta": "A equipe de operações de uma empresa mantém cargas de trabalho em um ambiente híbrido, abrangendo AWS, Azure e on-premises. Como a AWS pode contribuir para a centralização e automação das atividades de gerenciamento de operações, aplicações, alterações e nós desse ambiente?",
+      "opcoes": {
+        "a": "Através do Hub de Operações do Managed Services",
+        "b": "Através do Hub de Operações do Config",
+        "c": "Através do Hub de Operações do Parameter Store",
+        "d": "Através do Hub de Operações do Systems Manager"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:**  \n- O Systems Manager é um hub de gerenciamento para recursos em ambientes híbridos e multi-nuvem, automatizando atualizações e conformidade.\n\n**Incorretas:**  \n- Managed Services oferece recursos operacionais.  \n- Parameter Store é para gerenciamento de dados de configuração.  \n- Config é para gerenciar configurações de serviços."
+    },
+    {
+      "id": 63,
+      "pergunta": "Uma diretora de operações precisa de um relatório detalhado sobre todos os serviços que possuem backups, incluindo seus períodos de retenção correspondentes. Como isso pode ser obtido de forma eficiente?",
+      "opcoes": {
+        "a": "Através do AWS Backup, navegue até o AWS Parameter Store",
+        "b": "Através do AWS Config, navegue até o AWS Backup",
+        "c": "Através do console da AWS, navegue até o AWS Backup",
+        "d": "Através do AWS Backup, navegue até o AWS Config"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- No console da AWS, o AWS Backup permite visualizar backups existentes e verificar períodos de retenção.\n\n**Incorretas:**  \n- Parameter Store é para gerenciamento de dados de configuração.  \n- Config é para gerenciar configurações de serviços."
+    },
+    {
+      "id": 64,
+      "pergunta": "Uma Organização pretende empregar o AWS Cloud Adoption Framework (AWS CAF) para incorporar a expertise e as melhores práticas em seu processo de transformação digital. Em quais seis perspectivas esse serviço agrupa recursos para atender a esse propósito?",
+      "opcoes": {
+        "a": "Produto, Pessoas, Governança, Plataforma, Segurança e Operações",
+        "b": "Negócios, Pessoas, Gestão, Tecnologia, Segurança e Operações",
+        "c": "Negócios, Pessoas, Governança, Plataforma, Segurança e Operações",
+        "d": "Produto, Pessoas, Gestão, Tecnologia, Segurança e Operações"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS CAF organiza suas práticas em seis perspectivas: Negócios, Pessoas, Governança, Plataforma, Segurança e Operações.\n\n**Incorretas:**  \n- Produto, Gestão e Tecnologia não são perspectivas do AWS CAF."
+    },
+    {
+      "id": 65,
+      "pergunta": "A fim de atender aos requisitos em um ambiente híbrido, um site mantém parte de sua carga de trabalho em servidores locais e parte em instâncias EC2 na AWS. Como é possível distribuir novas versões desse site em ambos os ambientes como um serviço da AWS?",
+      "opcoes": {
+        "a": "Realizando o deploy com o CodePipeline",
+        "b": "Realizando o deploy com o CodeDeploy",
+        "c": "Realizando o deploy com o CodeStar",
+        "d": "Não existe essa possibilidade"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:**  \n- O AWS CodeDeploy automatiza implantações em instâncias EC2 e servidores on-premises, com a necessidade de instalar um agente.\n\n**Incorretas:**  \n- CodePipeline é para orquestração de CI/CD.  \n- CodeStar gerencia projetos e membros."
+    }
+  ],
+  "total_questoes": 65
+}
