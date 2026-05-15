@@ -231,7 +231,7 @@
 
         const startSimulado = (item) => {
           setLoading(true);
-          fetch(`../simulados/${item.file}`)
+          fetch(`${item.file}`)
             .then((response) => {
               if (!response.ok) throw new Error('Falha ao carregar o simulado.');
               return response.json();
