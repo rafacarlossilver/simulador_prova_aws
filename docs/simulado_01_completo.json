@@ -1,0 +1,925 @@
+{
+  "titulo": "SIMULADO 1 - AWS Cloud Practitioner (CLF-C02)",
+  "autor": "Marcelo Avelino",
+  "questoes": [
+    {
+      "id": 1,
+      "pergunta": "Qual é a opção de armazenamento padrão do serviço S3?",
+      "opcoes": {
+        "a": "Standard",
+        "b": "Infrequent Access",
+        "c": "Frequent Access",
+        "d": "Glacier"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** Standard é a opção padrão devido à alta durabilidade e\ndisponibilidade.  \n**Incorretas:** Infrequent Access e Glacier têm tempos de recuperação\nmais longos; Frequent Access não é uma classe de armazenamento."
+    },
+    {
+      "id": 2,
+      "pergunta": "Uma aplicação de terceiros produzirá um arquivo em um\nformato incompatível com o seu sistema. Qual serviço da AWS pode ser\nusado para transformar esse arquivo?",
+      "opcoes": {
+        "a": "AWS DMS",
+        "b": "AWS DataSync",
+        "c": "AWS DTS",
+        "d": "AWS Glue"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** AWS Glue é um serviço de ETL que automatiza a transformação\nde dados.  \n**Incorretas:** DataSync é para sincronização de dados; DMS é para\nmigração de bancos de dados; DTS não é um serviço da AWS."
+    },
+    {
+      "id": 3,
+      "pergunta": "Qual é o banco de dados relacional totalmente gerenciado\npela AWS e que pode ser 5x mais rápido que o MySQL?",
+      "opcoes": {
+        "a": "Aurora",
+        "b": "Neptune",
+        "c": "MariaDB",
+        "d": "DynamoDB"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** Amazon Aurora é otimizado para MySQL e PostgreSQL.  \n**Incorretas:** Neptune é um banco de dados de grafos; MariaDB não tem a\nmesma otimização; DynamoDB é NoSQL."
+    },
+    {
+      "id": 4,
+      "pergunta": "Uma empresa busca aprimorar a eficiência dos custos ao\nutilizar o serviço S3. Como seria possível otimizar essa situação?",
+      "opcoes": {
+        "a": "Criando uma cópia desses objetos em outra região",
+        "b": "Criando uma cópia desses objetos em outra zona de disponibilidade",
+        "c": "Configurando o S3 Lifecycle para que os objetos expirem em 30 dias\npara serem automaticamente excluídos",
+        "d": "Configurando o CloudWatch para monitorar o S3 e enviar um email\nsolicitando a exclusão dos arquivos"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** O S3 Lifecycle automatiza a exclusão de dados antigos.  \n**Incorretas:** As outras opções não otimizam custos automaticamente;\nCloudWatch apenas monitora."
+    },
+    {
+      "id": 5,
+      "pergunta": "Uma agência de publicidade pretende lançar um site com\nconteúdo estático. Qual serviço seria mais apropriado e econômico?",
+      "opcoes": {
+        "a": "Elastic File System (EFS)",
+        "b": "Docker",
+        "c": "Simple Storage Service (S3)",
+        "d": "Elastic Compute Cloud (EC2)"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** S3 é ideal para sites estáticos, sendo econômico.  \n**Incorretas:** EFS e EC2 são mais caros e complexos; Docker não é um\nserviço de armazenamento."
+    },
+    {
+      "id": 6,
+      "pergunta": "Uma empresa tem o interesse em empregar o AWS IQ para\nagilizar a entrega de um projeto na nuvem. Como esse serviço pode ser\nutilizado?",
+      "opcoes": {
+        "a": "Analisando e gerando dados para gerar insights",
+        "b": "Ensinando linguagem de programação em nuvem",
+        "c": "Automatizando a infraestrutura na nuvem",
+        "d": "Conectando especialistas da AWS para projetos de curto prazo"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** AWS IQ conecta clientes a especialistas para projetos\nespecíficos.  \n**Incorretas:** As outras opções não são funções do AWS IQ."
+    },
+    {
+      "id": 7,
+      "pergunta": "Quais recursos referem-se ao Amazon S3? (Selecione 2\nalternativas)",
+      "opcoes": {
+        "a": "Objeto é um arquivo ou meta dado que descreve o arquivo",
+        "b": "Lambdas são funções sem servidores",
+        "c": "Bucket é um container de objetos",
+        "d": "Elastic Load Balancer são balanceadores de carga"
+      },
+      "resposta_correta": [
+        "a",
+        "c"
+      ],
+      "explicacao": "**Corretas:** A e C são conceitos fundamentais do S3.  \n**Incorretas:** B e D se referem a outros serviços da AWS."
+    },
+    {
+      "id": 8,
+      "pergunta": "Uma organização almeja padronizar o processo de criação\ne configuração de todos os bancos de dados em sua infraestrutura por\nmeio de código, permitindo a implementação automática através de\npipelines de CI/CD. Qual serviço seria a recomendação para atender a\nesse propósito?",
+      "opcoes": {
+        "a": "AWS RDS",
+        "b": "AWS IAC",
+        "c": "AWS CodePipeline",
+        "d": "AWS CloudFormation"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** CloudFormation permite gerenciar infraestrutura como\ncódigo.  \n**Incorretas:** RDS é para bancos de dados; IAC não é um serviço;\nCodePipeline é para CI/CD."
+    },
+    {
+      "id": 9,
+      "pergunta": "O que é possível fazer com o Amazon QuickSight?",
+      "opcoes": {
+        "a": "Capturar dados de dispositivos e streaming",
+        "b": "Executar MapReduce em dados distribuídos",
+        "c": "Consultar dados no S3",
+        "d": "Criar dashboards de BI com machine learning"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** QuickSight é usado para criar dashboards e análises.  \n**Incorretas:** A, B, e C não são funcionalidades principais do\nQuickSight."
+    },
+    {
+      "id": 10,
+      "pergunta": "Qual serviço fornece informações sobre os custos de\ninfraestrutura na AWS?",
+      "opcoes": {
+        "a": "AWS Inspector",
+        "b": "AWS Budgets",
+        "c": "AWS Cost Explorer",
+        "d": "AWS Trusted Advisor"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** Cost Explorer permite visualizar e analisar custos.  \n**Incorretas:** Budgets é para planejamento; Inspector e Trusted Advisor\ntêm outras finalidades."
+    },
+    {
+      "id": 11,
+      "pergunta": "Como o AWS Compute Optimizer ajuda a identificar\nconfigurações ideais na AWS?",
+      "opcoes": {
+        "a": "Análise de mercado",
+        "b": "Mineração de dados",
+        "c": "Machine learning",
+        "d": "Redes sociais"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** Compute Optimizer usa machine learning para otimizar\nconfigurações.  \n**Incorretas:** As outras opções não se aplicam ao Compute Optimizer."
+    },
+    {
+      "id": 12,
+      "pergunta": "Qual é a capacidade de armazenamento do S3?",
+      "opcoes": {
+        "a": "5 Gigabytes",
+        "b": "50 Gigabytes",
+        "c": "Capacidade virtualmente ilimitada",
+        "d": "1 Terabyte"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** S3 oferece capacidade praticamente ilimitada.  \n**Incorretas:** As outras opções não refletem a verdadeira capacidade do\nS3."
+    },
+    {
+      "id": 13,
+      "pergunta": "Qual serviço audita as atividades na AWS?",
+      "opcoes": {
+        "a": "AWS Audit",
+        "b": "AWS CloudSearch",
+        "c": "AWS CloudTrail",
+        "d": "AWS Elasticsearch"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** CloudTrail registra todas as atividades na AWS.  \n**Incorretas:** As outras opções não são para auditoria."
+    },
+    {
+      "id": 14,
+      "pergunta": "Quais são as formas de pagamento para instâncias EC2?\n(Selecione 3 alternativas)",
+      "opcoes": {
+        "a": "Spot",
+        "b": "On-Demand",
+        "c": "On-Premise",
+        "d": "Reserved",
+        "e": "Tailor Made"
+      },
+      "resposta_correta": [
+        "a",
+        "b",
+        "d"
+      ],
+      "explicacao": "**Corretas:** Spot, On-Demand, e Reserved são opções de pagamento para\nEC2.  \n**Incorretas:** On-Premise e Tailor Made não são formas de pagamento na\nAWS."
+    },
+    {
+      "id": 15,
+      "pergunta": "Qual serviço permite o acesso seguro a recursos na\nAWS?",
+      "opcoes": {
+        "a": "IAM Users",
+        "b": "IAM Policies",
+        "c": "IAM Groups",
+        "d": "IAM Roles"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** IAM Roles concede permissões temporárias e seguras.  \n**Incorretas:** Users, Policies, e Groups têm outras funções no\ngerenciamento de acesso."
+    },
+    {
+      "id": 16,
+      "pergunta": "Qual dos seguintes serviços de banco de dados é\ntotalmente gerenciado pela AWS?",
+      "opcoes": {
+        "a": "MariaDB",
+        "b": "DynamoDB",
+        "c": "SQL Server",
+        "d": "MySQL"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:** DynamoDB é um banco de dados NoSQL totalmente gerenciado.  \n**Incorretas:** MariaDB, SQL Server, e MySQL são gerenciados, mas não\nsão NoSQL."
+    },
+    {
+      "id": 17,
+      "pergunta": "Quem possui acesso completo na conta AWS?",
+      "opcoes": {
+        "a": "AWS IAM",
+        "b": "AWS Account Root User",
+        "c": "AWS Administrator",
+        "d": "AWS Full User"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:** O root user tem acesso completo à conta.  \n**Incorretas:** IAM e Administrator gerenciam acesso, mas não têm\ncontrole total."
+    },
+    {
+      "id": 18,
+      "pergunta": "Quais são as principais vantagens do AWS ECS?",
+      "opcoes": {
+        "a": "Alta disponibilidade",
+        "b": "Integração com serviços de rede",
+        "c": "Gerenciamento simplificado de contêineres"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** ECS facilita o gerenciamento de contêineres.  \n**Incorretas:** As outras opções são características, mas o\ngerenciamento simplificado é o diferencial."
+    },
+    {
+      "id": 19,
+      "pergunta": "Análise os serviços abaixo: O primeiro permite que\naplicativos enviem mensagens críticas para vários assinantes através de\num mecanismo de \"push\", eliminando a necessidade de verificar\nperiodicamente ou \"puxar\" por atualizações. O segundo é um serviço de\nfila de mensagens, usado por aplicativos distribuídos para trocar\nmensagens através de um modelo de enfileiramento, que pode ajudar a\ndesacoplar componentes de software.  \nQual opção apresenta, respectivamente, o primeiro e o segundo serviço?",
+      "opcoes": {
+        "a": "SNS e SQS",
+        "b": "SES e SES",
+        "c": "SES e SNS",
+        "d": "SQS e SNS"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** SNS é para notificações push; SQS é para filas de\nmensagens.  \n**Incorretas:** As outras combinações não estão corretas."
+    },
+    {
+      "id": 20,
+      "pergunta": "Uma empresa tem o interesse de acompanhar o percentual\nde utilização de memória em seus servidores durante um período\nespecífico de uso. Qual serviço da AWS seria adequado para atender a\nessa necessidade?",
+      "opcoes": {
+        "a": "AWS CloudWatch",
+        "b": "AWS Cost Explorer",
+        "c": "AWS DataSync",
+        "d": "AWS CloudTrail"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** CloudWatch monitora recursos e métricas de uso.  \n**Incorretas:** Os outros serviços não são para monitoramento em tempo\nreal."
+    },
+    {
+      "id": 21,
+      "pergunta": "Uma agência de viagens online tem a necessidade de\narmazenar, analisar e correlacionar dados de logs de seus aplicativos,\nisso é essencial para identificar e resolver gargalos de desempenho e\nproblemas de disponibilidade, a fim de garantir uma experiência\notimizada para seus clientes. Qual serviço da AWS é mais indicado para\natender a essa demanda?",
+      "opcoes": {
+        "a": "Amazon EMR",
+        "b": "Amazon CloudSearch",
+        "c": "Amazon OpenSearch",
+        "d": "Amazon Athena"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** OpenSearch é ideal para logs e análise de desempenho.  \n**Incorretas:** EMR é para Big Data; CloudSearch para busca; Athena para\nconsultas em S3."
+    },
+    {
+      "id": 22,
+      "pergunta": "Uma das formas de garantir a elasticidade e economia no\nuso do EC2 é mantendo os arquivos de programas e de sistemas em serviços\nde armazenamento anexados a instâncias. Qual serviço pode ser utilizado\npara isso?",
+      "opcoes": {
+        "a": "CodeCommit",
+        "b": "Git",
+        "c": "EBS",
+        "d": "S3"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** EBS fornece armazenamento em bloco para instâncias EC2.  \n**Incorretas:** CodeCommit e Git são para controle de versão; S3 é\narmazenamento de objetos."
+    },
+    {
+      "id": 23,
+      "pergunta": "Uma empresa tem a intenção de desenvolver uma aplicação\nsem servidor, fazendo uso de Lambda, SQS e SNS. Nesse contexto, é\nnecessário escolher um serviço que possa orquestrar e integrar esses\nrecursos para fluxos de negócio. Qual serviço seria mais adequado para\nessa finalidade?",
+      "opcoes": {
+        "a": "AWS Service Mesh",
+        "b": "AWS EventBridge",
+        "c": "AWS Workflow",
+        "d": "AWS Step Functions"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** Step Functions orquestra funções sem servidor e integra\nserviços.  \n**Incorretas:** Service Mesh é para microserviços; EventBridge é para\neventos; Workflow não é um serviço da AWS."
+    },
+    {
+      "id": 24,
+      "pergunta": "Quais itens fazem parte dos pilares do Well-Architected\nFramework? (Selecione 2 alternativas)",
+      "opcoes": {
+        "a": "Excelência Operacional",
+        "b": "Desacoplamento",
+        "c": "Monitoramento",
+        "d": "Escalabilidade",
+        "e": "Segurança"
+      },
+      "resposta_correta": [
+        "a",
+        "e"
+      ],
+      "explicacao": "**Corretas:** Excelência Operacional e Segurança são pilares do\nWell-Architected.  \n**Incorretas:** Desacoplamento, Monitoramento, e Escalabilidade são\npráticas, não pilares principais."
+    },
+    {
+      "id": 25,
+      "pergunta": "Durante a migração de sistemas, observou-se que há\ndados em uma aplicação que raramente são acessados e poderiam ser\npreservados em arquivos apenas para fins de auditoria. Qual serviço pode\nser empregado para alcançar esse objetivo com o menor custo possível?",
+      "opcoes": {
+        "a": "S3 Infrequent Access",
+        "b": "S3 Intelligent Tiering",
+        "c": "S3 Standard",
+        "d": "S3 Glacier"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** Glacier é ideal para arquivamento a longo prazo e baixo\ncusto.  \n**Incorretas:** Infrequent Access e Intelligent Tiering têm custos\nmaiores; Standard é para dados acessados frequentemente."
+    },
+    {
+      "id": 26,
+      "pergunta": "Um time de desenvolvimento detectou baixo desempenho em\num banco de dados relacional. A concorrência entre um alto volume de\nconsultas e outras operações no banco de dados tem elevado a latência no\ntráfego de dados. Qual é a abordagem mais eficiente e econômica para\nsolucionar esse problema?",
+      "opcoes": {
+        "a": "Substituir o RDS pelo Dynamo",
+        "b": "Atualizar a role de acesso ao banco",
+        "c": "Criar novas instâncias do RDS em outra zona de disponibilidade",
+        "d": "Fazer o uso de Read Replicas"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** Read Replicas distribuem o tráfego de leitura e melhoram o\ndesempenho.  \n**Incorretas:** As outras opções não são focadas em desempenho de\nleitura."
+    },
+    {
+      "id": 27,
+      "pergunta": "Qual das classes a seguir pode resultar em custos mais\nelevados no uso do S3?",
+      "opcoes": {
+        "a": "Glacier",
+        "b": "Standard",
+        "c": "Glacier Deep Archive",
+        "d": "Standard Infrequent Access"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:** Standard tem custos mais elevados devido à alta\ndisponibilidade e recuperação rápida.  \n**Incorretas:** Glacier e Deep Archive são para arquivamento a longo\nprazo; Infrequent Access é para dados menos acessados."
+    },
+    {
+      "id": 28,
+      "pergunta": "Após concluir os testes, homologação e implantação de\numa aplicação, usuários relatam a impossibilidade de acessá-la em\nambiente de produção. No log do CloudWatch, uma mensagem de erro indica\nque a função Lambda enfrentou negação de acesso ao DynamoDB. Qual\nserviço precisa ser configurado para resolver este problema em\nprodução?",
+      "opcoes": {
+        "a": "AWS IAM roles",
+        "b": "AWS Cognito",
+        "c": "AWS CloudWatch",
+        "d": "AWS Config"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** IAM roles gerenciam permissões de acesso entre Lambda e\nDynamoDB.  \n**Incorretas:** Cognito é para identidade; CloudWatch para\nmonitoramento; Config para conformidade."
+    },
+    {
+      "id": 29,
+      "pergunta": "Um desenvolvedor precisa modificar determinadas partes\ndo código de uma aplicação, mas no momento não possui acesso ao seu\ncomputador e nem a sua IDE preferida. Como esse cenário pode ser\ncontornado utilizando serviços da AWS?",
+      "opcoes": {
+        "a": "Utilizando o CodePipeline através de um navegador de internet",
+        "b": "Utilizando o Cloud9 através de um navegador de internet",
+        "c": "Utilizando o CodeBuild através de um navegador de internet",
+        "d": "Utilizando o Athena através de um navegador de internet"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:** Cloud9 é uma IDE baseada em navegador para desenvolvimento\nremoto.  \n**Incorretas:** CodePipeline é para CI/CD; CodeBuild é para compilar;\nAthena é para consultas SQL."
+    },
+    {
+      "id": 30,
+      "pergunta": "Quais dos seguintes planos de suporte oferecem acesso\nao atendimento ao cliente, whitepapers, documentações e fóruns de\nsuporte 24x7? (Selecione 2)",
+      "opcoes": {
+        "a": "Full",
+        "b": "Basic",
+        "c": "Enterprise",
+        "d": "Reserved"
+      },
+      "resposta_correta": [
+        "b",
+        "c"
+      ],
+      "explicacao": "**Corretas:** Basic e Enterprise oferecem suporte 24x7.  \n**Incorretas:** Full e Reserved não são planos de suporte na AWS."
+    },
+    {
+      "id": 31,
+      "pergunta": "Uma organização busca implementar uma estratégia de\nRecuperação de Desastres (DR) para suas aplicações. Qual é a\nrecomendação mais adequada para a utilização do AWS RDS?",
+      "opcoes": {
+        "a": "Multi Regions (Distribuir em regiões diferentes)",
+        "b": "Implementar uma cópia do banco numa instância EC2",
+        "c": "Multi-AZ (Distribuir em zonas de disponibilidade diferentes)",
+        "d": "Read Replicas (Fazer cópias de leitura)"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** Multi Regions garante alta disponibilidade em caso de\ndesastres.  \n**Incorretas:** As outras opções não oferecem a mesma abrangência em\nrecuperação de desastres."
+    },
+    {
+      "id": 32,
+      "pergunta": "Uma empresa precisa executar milhares de tarefas de\ncomputação em lote com eficiência. Qual é o serviço mais indicado para\nessa necessidade?",
+      "opcoes": {
+        "a": "AWS EventBridge",
+        "b": "AWS Workflow",
+        "c": "AWS Kinesis",
+        "d": "AWS Batch"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** AWS Batch é otimizado para computação em lote.  \n**Incorretas:** EventBridge é para eventos; Workflow não é um serviço da\nAWS; Kinesis é para streaming de dados."
+    },
+    {
+      "id": 33,
+      "pergunta": "A Chief Technology Officer (CTO) de uma rede hospitalar\nalmeja incorporar o AWS Data Exchange em suas plataformas. Para que\nfinalidade esse serviço pode ser utilizado nesse contexto?",
+      "opcoes": {
+        "a": "Para criar relatórios financeiros de hospitais.",
+        "b": "Para integrar as redes computacionais dos hospitais.",
+        "c": "Para compartilhar dados de pacientes com outras redes\nhospitalares.",
+        "d": "Para criar websites de informações médicas."
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** Data Exchange facilita o compartilhamento seguro de dados\nentre organizações.  \n**Incorretas:** As outras opções não são focos do Data Exchange."
+    },
+    {
+      "id": 34,
+      "pergunta": "Utilizando os serviços da AWS, qual é a sequência\nesperada numa pipeline de CI/CD?",
+      "opcoes": {
+        "a": "CodeCommit, CodeDeploy, CodeBuild",
+        "b": "CodeBuild, CodeCommit, CodeDeploy",
+        "c": "CodeDeploy, CodeBuild, CodeCommit",
+        "d": "CodeCommit, CodeBuild, CodeDeploy"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** A sequência é: gerenciar código, compilar/testar, e\nimplantar.  \n**Incorretas:** As outras sequências não seguem o fluxo lógico de CI/CD."
+    },
+    {
+      "id": 35,
+      "pergunta": "Em relação ao framework de melhores práticas\narquitetônicas da AWS, qual pilar se dedica a assegurar que uma carga de\ntrabalho execute sua função prevista de forma correta e consistente, e\nque essa carga de trabalho seja resiliente, recuperando-se prontamente\nde falhas para atender às demandas do negócio e do cliente?",
+      "opcoes": {
+        "a": "Excelência Operacional",
+        "b": "Segurança",
+        "c": "Performance Eficiente",
+        "d": "Confiabilidade"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** Confiabilidade garante resiliência e recuperação de\nfalhas.  \n**Incorretas:** Os outros pilares focam em outros aspectos de melhores\npráticas."
+    },
+    {
+      "id": 36,
+      "pergunta": "Qual é o serviço de alta performance desenvolvido para\nfornecer block-storage para instâncias EC2?",
+      "opcoes": {
+        "a": "EBS",
+        "b": "ELB",
+        "c": "S3",
+        "d": "KMS"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** EBS fornece armazenamento de blocos de alta performance.  \n**Incorretas:** ELB é para balanceamento de carga; S3 para armazenamento\nde objetos; KMS para gerenciamento de chaves."
+    },
+    {
+      "id": 37,
+      "pergunta": "Qual é o serviço serverless (sem servidor) que permite\na execução de consultas utilizando padrão SQL para analisar dados no\nAmazon S3?",
+      "opcoes": {
+        "a": "Amazon Query Analyzer",
+        "b": "EMR",
+        "c": "Athena",
+        "d": "Amazon Elastic Search"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** Athena permite consultas SQL diretamente nos dados no S3.  \n**Incorretas:** Query Analyzer não existe; EMR é para processamento de\nBig Data; Elastic Search é para busca e análise de dados."
+    },
+    {
+      "id": 38,
+      "pergunta": "Uma empresa busca assegurar a segurança das instâncias\nde uma aplicação que está prestes a ser lançada. Qual é o serviço que\nauxilia na identificação de vulnerabilidades de segurança e riscos de\nexposição, seguindo as melhores práticas e conformidade com\nregulamentações?",
+      "opcoes": {
+        "a": "AWS Macie",
+        "b": "AWS Inspector",
+        "c": "AWS GuardDuty",
+        "d": "AWS KMS"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:** Inspector realiza avaliações de segurança em instâncias\nEC2.  \n**Incorretas:** Macie é para dados sensíveis; GuardDuty para ameaças de\nsegurança; KMS para gerenciamento de chaves."
+    },
+    {
+      "id": 39,
+      "pergunta": "Uma empresa está transferindo parte de uma aplicação\nque utiliza sistemas de arquivos para armazenar e processar determinados\ndados na AWS. Qual das opções indica o serviço que pode ser empregado\npara atender a essa parte específica da aplicação?",
+      "opcoes": {
+        "a": "AWS Config",
+        "b": "Key Management Service (AWS KMS)",
+        "c": "Elastic File System (EFS)",
+        "d": "EC2"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** EFS é ideal para sistemas de arquivos na AWS.  \n**Incorretas:** Config é para conformidade; KMS para chaves; EC2 para\ncomputação."
+    },
+    {
+      "id": 40,
+      "pergunta": "O que é o MFA - Multi-Factor Authentication\n(Autenticação Multi Fator)?",
+      "opcoes": {
+        "a": "Um serviço que permite que instâncias EC2 acessem banco de dados\nDynamoDB",
+        "b": "Um serviço que permite a conexão entre a máquina do cliente e um\nservidor na AWS através de um arquivo contendo pares de chaves",
+        "c": "Um serviço que utiliza key pairs (par de chaves) na autenticação do\nusuário através da CLI (Linha de Comando)",
+        "d": "Um serviço que inclui uma etapa a mais no processo de autenticação\nde acesso à conta da AWS através do Console Web"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** MFA adiciona uma camada extra de segurança na\nautenticação.  \n**Incorretas:** As outras opções descrevem diferentes mecanismos de\nsegurança."
+    },
+    {
+      "id": 41,
+      "pergunta": "Qual das seguintes afirmações NÃO está relacionada ao\nAWS Lambda?",
+      "opcoes": {
+        "a": "Pode ser acionado diretamente pelo AWS S3",
+        "b": "Pode ser acionado diretamente pelo AWS SNS",
+        "c": "Processa dados sem servidor",
+        "d": "Permite o gerenciamento total dos recursos de infraestrutura"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** Lambda não permite gerenciamento completo de\ninfraestrutura, apenas execução de funções.  \n**Incorretas:** As outras opções são características do Lambda."
+    },
+    {
+      "id": 42,
+      "pergunta": "Um arquiteto de soluções está em busca de um serviço\ncapaz de identificar os sentimentos expressos em textos digitados\ndurante conversas entre clientes e atendentes em um chat da sua\ninstituição. Qual serviço pode ser utilizado para atender a essa\nnecessidade?",
+      "opcoes": {
+        "a": "Kendra",
+        "b": "Comprehend",
+        "c": "Translate",
+        "d": "Polly"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:** Comprehend usa NLP para análise de sentimentos em textos.  \n**Incorretas:** Kendra é para busca; Translate para tradução; Polly para\nconversão de texto em fala."
+    },
+    {
+      "id": 43,
+      "pergunta": "Um arquiteto de soluções da sua empresa recomendou o\nuso do AWS Wavelength. Qual a melhor definição para esse serviço?",
+      "opcoes": {
+        "a": "Uma região geográfica da AWS especialmente projetada para cargas de\ntrabalho de baixa latência.",
+        "b": "Uma ferramenta de gerenciamento de banco de dados na AWS.",
+        "c": "Uma tecnologia de monitoramento de tráfego de rede na AWS.",
+        "d": "Uma linguagem de programação utilizada para desenvolver aplicativos\nna AWS."
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** Wavelength é projetado para reduzir a latência em cargas de\ntrabalho.  \n**Incorretas:** As outras opções não se aplicam à definição do\nWavelength."
+    },
+    {
+      "id": 44,
+      "pergunta": "O desenvolvedor de uma empresa implementou um sistema\nbaseado em arquitetura de microsserviços e necessita realizar a\ndepuração de problemas relacionados ao desempenho e à experiência do\nusuário. Qual serviço é mais apropriado para essa finalidade?",
+      "opcoes": {
+        "a": "AWS CloudWatch",
+        "b": "AWS OpenSearch",
+        "c": "AWS X-Ray",
+        "d": "AWS CloudSearch"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** X-Ray permite análise de desempenho e depuração de\nmicrosserviços.  \n**Incorretas:** CloudWatch é para monitoramento geral; OpenSearch e\nCloudSearch são para busca."
+    },
+    {
+      "id": 45,
+      "pergunta": "Como é possível manter a exposição constante de\nserviços em um mesmo endereço IP e facilitar a substituição simples dos\nhosts associados a esse endereço em sua infraestrutura?",
+      "opcoes": {
+        "a": "Utilizando um IP Elástico",
+        "b": "Utilizando o Route 53",
+        "c": "Utilizando um IPv6",
+        "d": "Utilizando um IPv4"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** Elastic IP permite endereço IP estático para instâncias\nEC2.  \n**Incorretas:** Route 53 é para DNS; IPv6 e IPv4 não garantem endereço\nestático após reinicializações."
+    },
+    {
+      "id": 46,
+      "pergunta": "Qual serviço da AWS é recomendado para estimar o custo\nde implementação dos serviços AWS para uma empresa?",
+      "opcoes": {
+        "a": "AWS Organizations",
+        "b": "AWS Pricing Calculator",
+        "c": "AWS Billing",
+        "d": "AWS Cost Explorer"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:** Pricing Calculator ajuda no planejamento de custos.  \n**Incorretas:** Organizations é para gerenciamento de contas; Billing é\npara faturas; Cost Explorer é para análise de custos passados."
+    },
+    {
+      "id": 47,
+      "pergunta": "Com base nos princípios de excelência operacional,\nsegurança, confiabilidade, desempenho eficiente, sustentabilidade e\notimização de custos, qual é o framework que auxilia os arquitetos de\nnuvem na construção de aplicações seguras, altamente eficientes,\nresilientes e otimizadas?",
+      "opcoes": {
+        "a": "AWS Pillar",
+        "b": "AWS CloudFormation",
+        "c": "AWS Well-Architected",
+        "d": "Framework .Net"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** Well-Architected Framework é uma referência para\narquiteturas eficientes.  \n**Incorretas:** Pillar não é um framework; CloudFormation é para\ngerenciar infraestrutura como código; Framework .Net é uma plataforma de\ndesenvolvimento."
+    },
+    {
+      "id": 48,
+      "pergunta": "Utilização de recursos de rede, computadores virtuais e\narmazenamento de dados com alto nível de flexibilidade, gerenciamento e\ncontrole sobre os recursos de TI são características de qual tipo de uso\nde cloud?",
+      "opcoes": {
+        "a": "BaaS",
+        "b": "IaaS",
+        "c": "PaaS",
+        "d": "SaaS"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:** IaaS oferece controle direto sobre infraestrutura de TI.  \n**Incorretas:** BaaS é para backend como serviço; PaaS é para plataforma\ncomo serviço; SaaS é software como serviço."
+    },
+    {
+      "id": 49,
+      "pergunta": "Qual serviço da AWS possui um catálogo onde os clientes\npodem encontrar aplicações desenvolvidas por terceiros, prontas para\nserem instaladas e executadas para atender as mais diversas necessidades\nde negócio?",
+      "opcoes": {
+        "a": "AWS Marketplace",
+        "b": "AWS AMI",
+        "c": "AWS MFA",
+        "d": "AWS OpsWorks"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** Marketplace oferece um catálogo de aplicações de\nterceiros.  \n**Incorretas:** AMI são imagens de máquinas; MFA é autenticação\nmultifator; OpsWorks é para automação de configuração."
+    },
+    {
+      "id": 50,
+      "pergunta": "Qual opção que melhor descreve o modelo de\nResponsabilidade Compartilhada da AWS (shared responsibility)?",
+      "opcoes": {
+        "a": "O cliente protege o data center, enquanto usuário protege sua\nsenha.",
+        "b": "A AWS protege o data center, enquanto o cliente protege as\naplicações.",
+        "c": "A AWS protege o data center, enquanto a Microsoft protege o\nWindows.",
+        "d": "O desenvolvedor é responsável por implementar a aplicação, enquanto o\ngestor faz a aprovação."
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:** No modelo de responsabilidade compartilhada, a AWS é\nresponsável pela infraestrutura, e o cliente pelas aplicações.  \n**Incorretas:** As outras opções não refletem a divisão correta de\nresponsabilidades."
+    },
+    {
+      "id": 51,
+      "pergunta": "Uma empresa optou por migrar algumas aplicações\nmonolíticas legadas para o ECS sem realizar refatorações. O que pode ser\nafirmado sobre essa estratégia?",
+      "opcoes": {
+        "a": "É possível, porém essa abordagem não resultará nos significativos\nbenefícios que uma refatoração para microsserviços proporcionaria.",
+        "b": "É possível e trará mais velocidade para a migração e implementação de\nnovas funcionalidades.",
+        "c": "Não é possível, pois o serviço não aceita aplicações monolíticas.",
+        "d": "É possível e recomendado."
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** A migração sem refatoração é viável, mas não maximiza os\nbenefícios dos microsserviços.  \n**Incorretas:** B exagera os benefícios; C está errada sobre a\naceitação; D não é recomendado sem refatoração."
+    },
+    {
+      "id": 52,
+      "pergunta": "Um grupo de desenvolvedores com conhecimento limitado\nem infraestrutura está interessado em adotar uma arquitetura de\nmicrosserviços em containers sem servidor. Qual serviço poderia\najudá-los, uma vez que não exige conhecimento especializado em\ncontainers e pode ser implementado com facilidade?",
+      "opcoes": {
+        "a": "Elastic Kubernetes Service (EKS)",
+        "b": "Elastic Container Service (ECS)",
+        "c": "Fargate",
+        "d": "Elastic Container Registry (ECR)"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** Fargate simplifica a execução de containers sem servidor.  \n**Incorretas:** EKS e ECS requerem mais conhecimento; ECR é um registro\nde imagens."
+    },
+    {
+      "id": 53,
+      "pergunta": "O AWS Trusted Advisor é um serviço de monitoramento e\nrecomendação que auxilia o cliente a otimizar o uso de recursos de sua\nconta de maneira alinhada com as melhores práticas para evitar muitos\nbenefícios. Quais itens abaixo representam tais benefícios? (Selecione 3\nalternativas)",
+      "opcoes": {
+        "a": "Segurança",
+        "b": "Proteção de Hardware",
+        "c": "Otimização de Custos",
+        "d": "Performance"
+      },
+      "resposta_correta": [
+        "a",
+        "c",
+        "d"
+      ],
+      "explicacao": "**Corretas:** Segurança, Otimização de Custos, e Performance são\nbenefícios do Trusted Advisor.  \n**Incorretas:** Proteção de Hardware não é coberta pelo Trusted Advisor."
+    },
+    {
+      "id": 54,
+      "pergunta": "Um e-commerce lida, em média, com 2000 usuários\ndiários. Em dias de aumento nas vendas, o sistema atinge picos de 3000\nusuários, resultando em lentidão e, por vezes, indisponibilidade. Como\nautomatizar o processo de provisionamento de instâncias adicionais de\nservidor para lidar automaticamente com essas cargas durante os períodos\nde pico?",
+      "opcoes": {
+        "a": "Utilizando o Auto Scaling",
+        "b": "Migrando a aplicação para uma máquina melhor",
+        "c": "Implementando EBS Snapshots",
+        "d": "Incluindo mais uma máquina física e alterando o ELB"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** Auto Scaling ajusta automaticamente a capacidade com base\nna demanda.  \n**Incorretas:** B não é automatizado; C não está relacionado à\nescalabilidade; D não é prático na cloud."
+    },
+    {
+      "id": 55,
+      "pergunta": "Uma aplicação necessita armazenar dados não\nestruturados de clientes. Qual serviço é mais apropriado para essa\nfinalidade?",
+      "opcoes": {
+        "a": "Amazon EMR",
+        "b": "Amazon RedShift",
+        "c": "Amazon Aurora",
+        "d": "Amazon DynamoDB"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** DynamoDB é ideal para dados não estruturados e\nsemi-estruturados.  \n**Incorretas:** EMR é para processamento de Big Data; RedShift é para\ndata warehousing; Aurora é um banco relacional."
+    },
+    {
+      "id": 56,
+      "pergunta": "Uma empresa pretende manter suas cargas de trabalho no\nambiente on-premises e armazenar parte de seus arquivos na AWS, adotando\numa arquitetura de nuvem híbrida. Qual serviço proporciona uma variedade\nde recursos para a implementação dessa integração de armazenamento?",
+      "opcoes": {
+        "a": "AWS Database Migration Service",
+        "b": "Amazon Virtual Private Cloud (VPC)",
+        "c": "AWS Organizations",
+        "d": "AWS Storage Gateway"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** Storage Gateway facilita a integração de armazenamento\nhíbrido.  \n**Incorretas:** Database Migration Service é para migração de bancos de\ndados; VPC é para redes virtuais; Organizations é para gerenciar contas."
+    },
+    {
+      "id": 57,
+      "pergunta": "Qual o serviço de banco de dados em grafo gerenciado\npela AWS que possibilita diversos tipos de relacionamentos entre os seus\nnós e pode ajudar em diversos contextos, representando conexões\npresentes em situações cotidianas, como em redes sociais, cadeias\nlogísticas, ambientes empresariais, entre outros?",
+      "opcoes": {
+        "a": "Amazon JanusGraph",
+        "b": "Amazon Neo4j",
+        "c": "Amazon Graph",
+        "d": "Amazon Neptune"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** Neptune é otimizado para grafos altamente conectados, como\nredes sociais.  \n**Incorretas:** As demais opções não são serviços oferecidos pela AWS."
+    },
+    {
+      "id": 58,
+      "pergunta": "Uma startup necessita realizar a implementação do\narmazenamento e sincronização de dados de um sistema de login seguro\npara aplicativos. Qual serviço da AWS pode ser empregado para atender a\nessa necessidade?",
+      "opcoes": {
+        "a": "AWS Redis",
+        "b": "AWS ElastiCache",
+        "c": "AWS Cognito",
+        "d": "AWS DynamoDB"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** Cognito gerencia identidades de usuários e fornece tokens\npara acesso seguro.  \n**Incorretas:** Redis e ElastiCache são para cache; DynamoDB é um banco\nde dados, não específico para autenticação."
+    },
+    {
+      "id": 59,
+      "pergunta": "Sua empresa deseja lançar um novo produto e para isso\nprecisa criar um novo domínio público para associá-lo a um site. Qual é\na maneira mais rápida de fazer isso?",
+      "opcoes": {
+        "a": "Criar um novo domínio no AWS Route 53",
+        "b": "Criar um novo domínio no RegistroCom",
+        "c": "Criar um novo domínio numa instância EC2 e incluir o novo domínio",
+        "d": "Desenvolver o novo site no AWS Beanstalk, que provisiona toda a infra\npara o desenvolvedor apenas programar."
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** Route 53 é um serviço DNS que facilita a criação de novos\ndomínios.  \n**Incorretas:** RegistroCom apenas registra; EC2 não é usado como\nservidor DNS; Beanstalk é para aplicações, não para registros de\ndomínio."
+    },
+    {
+      "id": 60,
+      "pergunta": "O que é Free Tier (Nível Gratuito)?",
+      "opcoes": {
+        "a": "Um serviço de firewall que protege suas aplicações",
+        "b": "É um modelo de uso onde você não é cobrado na AWS",
+        "c": "É uma camada de banco de dados NoSQL",
+        "d": "É um modelo open source (código aberto) para o desenvolvimento de\naplicações em camadas"
+      },
+      "resposta_correta": [
+        "b"
+      ],
+      "explicacao": "**Correta:** Free Tier permite usar determinados serviços AWS\ngratuitamente por um tempo limitado.  \n**Incorretas:** As outras opções não descrevem o Free Tier."
+    },
+    {
+      "id": 61,
+      "pergunta": "Uma agência está buscando incorporar ao seu site uma\nfuncionalidade que permita realizar pesquisas em todos os textos das\npáginas e arquivos, visando aprimorar a navegação e a experiência dos\nusuários. Qual serviço SaaS disponível na AWS oferece ferramentas\nrobustas para atender a esse propósito e pode ser facilmente integrado à\nsua aplicação?",
+      "opcoes": {
+        "a": "Amazon CloudSearch",
+        "b": "Amazon OpenSearch",
+        "c": "Amazon Athena",
+        "d": "Amazon CloudWatch"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** CloudSearch permite busca e indexação avançadas para\nsites.  \n**Incorretas:** OpenSearch é para busca mas em um contexto mais amplo;\nAthena é para consultas SQL em S3; CloudWatch é para monitoramento."
+    },
+    {
+      "id": 62,
+      "pergunta": "Quais são os cinco planos de suporte ofertados pela\nAWS?",
+      "opcoes": {
+        "a": "Basic, Developer, Business, Enterprise On-Ramp, Enterprise",
+        "b": "Basic, Developer, Business, Advanced, Enterprise On-Ramp",
+        "c": "Standard, Developer, Business, Enterprise On-Ramp, Enterprise",
+        "d": "Bronze, Silver, Gold, Diamond, Ruby"
+      },
+      "resposta_correta": [
+        "a"
+      ],
+      "explicacao": "**Correta:** Basic, Developer, Business, Enterprise On-Ramp, e\nEnterprise são os planos de suporte da AWS.  \n**Incorretas:** As demais opções incluem planos que não existem ou não\nsão parte do suporte da AWS."
+    },
+    {
+      "id": 63,
+      "pergunta": "Uma aplicação disponibiliza dados por meio de APIs REST\npara várias aplicações externas. Considerando possíveis cenários de\nmanutenção e evolução futuras, qual serviço pode auxiliar na gestão de\nmúltiplas versões de uma API, garantindo a compatibilidade contínua com\ntodos os seus consumidores?",
+      "opcoes": {
+        "a": "AWS Route53",
+        "b": "AWS EventBridge",
+        "c": "API Gateway",
+        "d": "AWS Zuul"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** API Gateway gerencia versões de APIs, facilitando a\nevolução controlada.  \n**Incorretas:** Zuul não existe na AWS; Route53 é DNS; EventBridge é\npara eventos."
+    },
+    {
+      "id": 64,
+      "pergunta": "Uma empresa deu início a um processo de transformação\ndigital em todas as suas plataformas e optou por implementar uma\narquitetura de sistemas orientada a eventos. Qual dos serviços a seguir\npode ser utilizado como um barramento escalável de eventos para\nfacilitar a implementação dessa arquitetura?",
+      "opcoes": {
+        "a": "Amazon EventSync",
+        "b": "Amazon Lambda",
+        "c": "Amazon SOS",
+        "d": "Amazon EventBridge"
+      },
+      "resposta_correta": [
+        "d"
+      ],
+      "explicacao": "**Correta:** EventBridge é um barramento de eventos que simplifica a\ncriação de aplicações orientadas a eventos.  \n**Incorretas:** EventSync não existe na AWS; Lambda é para funções sem\nservidor; SOS não existe na AWS."
+    },
+    {
+      "id": 65,
+      "pergunta": "A equipe de segurança da informação de uma empresa\nclassificou um e-mail como tendo alto risco de conter dados sensíveis\ndevido à ausência de criptografia nas mensagens trocadas entre os\nusuários e os servidores. Qual serviço poderia ser eficaz para remediar\nesse problema?",
+      "opcoes": {
+        "a": "AWS Cognito",
+        "b": "AWS IAM",
+        "c": "AWS Certificate Manager",
+        "d": "AWS KMS"
+      },
+      "resposta_correta": [
+        "c"
+      ],
+      "explicacao": "**Correta:** Certificate Manager gerencia certificados digitais para\ncriptografia de dados em trânsito.  \n**Incorretas:** Cognito é para gerenciamento de identidade; IAM para\ncontrole de acesso; KMS para gerenciamento de chaves criptográficas."
+    }
+  ],
+  "total_questoes": 65
+}
