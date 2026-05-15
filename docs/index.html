@@ -24,7 +24,6 @@
     <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide-react@0.431.0/dist/umd/lucide-react.production.min.js"></script>
     <style>
       body {
         background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
@@ -43,15 +42,6 @@
     <script type="text/babel">
       const { useEffect, useMemo, useRef, useState } = React;
       const { createRoot } = ReactDOM;
-      const {
-        CheckCircle,
-        XCircle,
-        Clock3,
-        Download,
-        ArrowRight,
-        ArrowLeft,
-        RefreshCcw,
-      } = LucideReact;
 
       const STORAGE_KEY = 'aws-clf-clf-c02-web-state';
       const MANIFEST_URL = 'manifest.json';
@@ -311,7 +301,7 @@
             <div className="rounded-3xl border border-aws-slate/40 bg-aws-slate/80 p-5 shadow-xl shadow-black/20">
               <div className="flex items-center gap-3">
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-aws-orange text-2xl text-white">
-                  <ClipboardList />
+                  📋
                 </span>
                 <div>
                   <h1 className="text-2xl font-semibold text-white">Simulador AWS CLF-C02</h1>
@@ -337,7 +327,7 @@
 
             <div className="rounded-3xl border border-aws-cloud/30 bg-white/5 p-4 text-sm text-slate-300">
               <p className="font-medium text-aws-gold">Importante:</p>
-              <p>O arquivo <span className="font-semibold">simulados/manifest.json</span> define os simulados disponíveis ao app Web.</p>
+              <p>O arquivo <span className="font-semibold">manifest.json</span> define os simulados disponíveis ao app Web.</p>
             </div>
           </div>
         );
@@ -355,7 +345,7 @@
                     <h2 className="mt-2 text-3xl font-semibold text-white">Questão {state.currentIndex + 1} de {state.questions.length}</h2>
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-3xl bg-aws-slate/80 px-4 py-3 text-sm text-white shadow-inner shadow-black/20">
-                    <Clock3 className="h-5 w-5 text-aws-orange" />
+                    <span className="text-aws-orange text-lg">⏱️</span>
                     <span className="font-semibold">{formatTime(state.remainingSeconds)}</span>
                   </div>
                 </div>
@@ -407,7 +397,7 @@
                     onClick={commitAnswer}
                     className="touch-target inline-flex items-center justify-center gap-2 rounded-3xl bg-aws-orange px-5 py-4 text-base font-semibold text-white transition hover:bg-orange-600"
                   >
-                    Avançar <ArrowRight className="h-5 w-5" />
+                    Avançar →
                   </button>
                   <button
                     type="button"
@@ -418,7 +408,7 @@
                     }}
                     className="touch-target inline-flex items-center justify-center gap-2 rounded-3xl border border-aws-cloud/40 bg-white/5 px-5 py-4 text-sm text-slate-100 transition hover:border-aws-orange hover:bg-aws-orange/10"
                   >
-                    Salvar resposta <RefreshCcw className="h-5 w-5" />
+                    Salvar resposta 🔄
                   </button>
                 </div>
               </div>
@@ -449,14 +439,14 @@
                   onClick={() => downloadCsv(state)}
                   className="touch-target inline-flex items-center justify-center gap-2 rounded-3xl bg-aws-orange px-5 py-4 text-base font-semibold text-white transition hover:bg-orange-600"
                 >
-                  Gerar CSV <Download className="h-5 w-5" />
+                  Gerar CSV ⬇️
                 </button>
                 <button
                   type="button"
                   onClick={() => setState({ ...state, stage: 'review' })}
                   className="touch-target inline-flex items-center justify-center gap-2 rounded-3xl border border-aws-cloud/40 bg-white/5 px-5 py-4 text-base font-semibold text-slate-100 transition hover:border-aws-orange hover:bg-aws-orange/10"
                 >
-                  Revisar Questões <ArrowRight className="h-5 w-5" />
+                  Revisar Questões →
                 </button>
               </div>
 
@@ -517,7 +507,7 @@
                     disabled={reviewIndex === 0}
                     className="touch-target inline-flex flex-1 items-center justify-center gap-2 rounded-3xl border border-aws-cloud/40 bg-white/5 px-5 py-4 text-base text-slate-100 transition hover:border-aws-orange hover:bg-aws-orange/10 disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    <ArrowLeft className="h-5 w-5" /> Anterior
+                    ← Anterior
                   </button>
                   <button
                     type="button"
@@ -525,7 +515,7 @@
                     disabled={reviewIndex === state.questions.length - 1}
                     className="touch-target inline-flex flex-1 items-center justify-center gap-2 rounded-3xl border border-aws-cloud/40 bg-white/5 px-5 py-4 text-base text-slate-100 transition hover:border-aws-orange hover:bg-aws-orange/10 disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    Próximo <ArrowRight className="h-5 w-5" />
+                    Próximo →
                   </button>
                 </div>
                 <button
@@ -533,7 +523,7 @@
                   onClick={resetSession}
                   className="touch-target inline-flex items-center justify-center gap-2 rounded-3xl bg-aws-orange px-5 py-4 text-base font-semibold text-white transition hover:bg-orange-600"
                 >
-                  Voltar ao Início <RefreshCcw className="h-5 w-5" />
+                  Voltar ao Início 🔄
                 </button>
               </div>
             </div>
@@ -550,7 +540,7 @@
                 </div>
                 <div className="rounded-3xl bg-white/5 px-4 py-3 text-sm text-slate-200">
                   <div className="flex items-center gap-2">
-                    <Clock3 className="h-5 w-5 text-aws-orange" />
+                    <span className="text-aws-orange text-lg">⏱️</span>
                     <span>Interface Web móvel-first</span>
                   </div>
                 </div>
